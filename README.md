@@ -1,7 +1,5 @@
 <h1 align="center">
-  
-![logoLightalura](https://user-images.githubusercontent.com/65976843/127209922-4957146f-1342-41ee-be80-8e682fa8ae66.png)
-  
+<img width="400" alt="aluraIcon" src="https://user-images.githubusercontent.com/65976843/127219934-d447ab22-4ad6-4706-9c8d-ffc8f810f146.png">
 </h1>
 O projeto é uma versão do Instagram, criado com React, Next/js e styled-components.
 
