@@ -1,6 +1,6 @@
 <h1 align="center">
 <img width="100" alt="aluraIcon" src="https://user-images.githubusercontent.com/65976843/127219929-c704e145-0311-4279-a07f-ba6a2e9cad14.png">
-<img width="400" alt="aluraIcon" src="https://user-images.githubusercontent.com/65976843/127219934-d447ab22-4ad6-4706-9c8d-ffc8f810f146.png">
+<img width="400" alt="aluraLogo" src="https://user-images.githubusercontent.com/65976843/127219934-d447ab22-4ad6-4706-9c8d-ffc8f810f146.png">
 </h1>
 O projeto é uma versão do Instagram, criado com React, Next/js e styled-components. Desenvolvido durante o Bootcamp Front-End Avançado da Alura.
 <br>
