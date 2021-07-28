@@ -1,24 +1,25 @@
 import React from 'react';
-import Logo from '../../theme/Logo';
+import Logo from '../../../theme/Logo';
+import { Button } from '../Button';
 import { MenuWrapper } from './styles/MenuWrapper';
 
+const links = [
+    {
+        texto: 'Home',
+        url: '/',
+    },
+    {
+        texto: 'Perguntas Frequentes',
+        url: '/faq',
+    },
+    {
+        texto: 'Sobre',
+        url: '/sobre',
+    },
+];
 
 export default function Menu() {
 
-    const links = [
-        {
-            texto: 'Home',
-            url: '/',
-        },
-        {
-            texto: 'Perguntas Frequentes',
-            url: '/faq',
-        },
-        {
-            texto: 'Sobre',
-            url: '/sobre',
-        },
-    ];
 
     return (
         <MenuWrapper>
@@ -39,8 +40,8 @@ export default function Menu() {
             </MenuWrapper.CentralSide>
 
             <MenuWrapper.RightSide>
-                <button>Entrar</button>
-                <button>Cadastrar</button>
+                <Button type="button" ghost variant="secondary.main">Entrar</Button>
+                <Button type="button" variant="primary.main">Cadastrar</Button>
             </MenuWrapper.RightSide>
         </MenuWrapper>
     )
