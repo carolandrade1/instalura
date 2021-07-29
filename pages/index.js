@@ -1,12 +1,17 @@
 import Menu from '../src/components/commons/Menu';
-import IndexPage from '../src/components/commons/IndexPage';
-
+import Footer from '../src/components/commons/Footer';
 
 export default function Home() {
   return (
-      <div>
-        <IndexPage />
+      <div style={{
+      flex: '1',
+      display: 'flex',
+      flexWrap: 'wrap',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      }}>
         <Menu />
+        <Footer />
       </div>
   )
 }

@@ -16,7 +16,9 @@ O projeto é uma versão do Instagram, criado com React, Next/js e styled-compon
   - [Instrutores](#instrutores)
   - [Referências](#referencias)
 
-  <a href="https://www.figma.com/file/Veefm1pjkeTFcJC7BUqHge/Instalura?node-id=0%3A1" target="_blank" rel="noopener noreferrer">Layout no Figma</a>
+<a href="https://www.figma.com/file/Veefm1pjkeTFcJC7BUqHge/Instalura?node-id=0%3A1" target="_blank" rel="noopener noreferrer">Layout do projeto no Figma</a>
+
+<a href="https://www.figma.com/file/HwMEsYgZ7aJ6fKvLW024D0/Instalura-Icon?node-id=0%3A1" target="_blank" rel="noopener noreferrer">Layout do Ícone Instalura criado por mim no Figma</a>
 
 ## 📺 Imagem
 
@@ -53,4 +55,5 @@ O projeto é uma versão do Instagram, criado com React, Next/js e styled-compon
 <!-- Jamstack - https://jamstack.org/ <br>
 Jamstack | 2020 - https://almanac.httparchive.org/en/2020/jamstack <br>
 Next.js - https://nextjs.org/ <br>
-Github Vercel Next.js - https://github.com/vercel/next.js/tree/canary/examples <br> -->
+Github Vercel Next.js - https://github.com/vercel/next.js/tree/canary/examples <br> 
+Material UI - https://material-ui.com/pt/ <br> -->
