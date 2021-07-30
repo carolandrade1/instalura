@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { TextStyleVariantsMap } from '../../foundation/Text';
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
 const ButtonGhost = css`
     color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
@@ -21,7 +22,15 @@ export const Button = styled.button`
     opacity: 1;
     border-radius: 8px;
 
-    ${TextStyleVariantsMap.smallestException}
+    ${breakpointsMedia({
+        xs: css`
+      ${TextStyleVariantsMap.smallestException}
+    `,
+        md: css`
+      padding: 12px 43px;
+      ${TextStyleVariantsMap.paragraph1}
+    `,
+    })}
 
     transition: opacity ${({ theme }) => theme.transition};
     border-radius: ${({ theme }) => theme.borderRadius};

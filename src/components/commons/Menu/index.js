@@ -21,7 +21,6 @@ const links = [
 
 export default function Menu() {
 
-
     return (
         <MenuWrapper>
             <MenuWrapper.LeftSide>
