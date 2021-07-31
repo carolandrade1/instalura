@@ -38,8 +38,8 @@ MenuWrapper.LeftSide = styled.div`
 
     ${breakpointsMedia({
         md: css`
-        width: 131px;
-        height: 32px;
+            width: 131px;
+            height: 32px;
         `,
     })}
 `;

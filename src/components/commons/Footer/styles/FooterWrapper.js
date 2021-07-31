@@ -15,6 +15,7 @@ export const FooterWrapper = styled.footer`
   a {
     color: ${({ theme }) => theme.colors.primary.main.color};
     text-decoration: none;
+    cursor: pointer;
     transition: .3s;
     &:hover,
     &:focus {
