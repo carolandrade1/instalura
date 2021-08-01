@@ -1,9 +1,10 @@
 import { typographyVariants } from "./TypographyVariants";
-import { colors } from "./Colors";
+import { colorsLight, colorsDark } from "./Colors";
 import { breakpoints } from "./Breakpoints";
 
 export default {
-    colors,
+    colorsLight, // rever
+    colorsDark,
     typographyVariants,
     breakpoints,
     fontFamily: '\'Rubik\', sans-serif',

@@ -30,11 +30,11 @@ export default function Menu() {
             <MenuWrapper.CentralSide>
                 {links.map(function (link) {
                     return (
-                        <li key={link.url}>
-                            <Text tag="a" variant="smallestException" href={link.url}>
+                        <Text tag="li" variant="smallestException" key={link.url}>
+                            <a href={link.url}>
                                 {link.texto}
-                            </Text>
-                        </li>
+                            </a>
+                        </Text>
                     )
                 })}
             </MenuWrapper.CentralSide>

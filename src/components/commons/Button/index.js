@@ -2,16 +2,17 @@ import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { TextStyleVariantsMap } from '../../foundation/Text';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import { propToStyle } from '../../../theme/utils/propToStyle';
 
 const ButtonGhost = css`
-    color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
+    color: ${({ theme, variant }) => get(theme, `colorsLight.${variant}.color`)}; // rever
     background: transparent;
 `;
 
 const ButtonDefault = css`
     color: white;
-    color: ${({ theme, variant }) => get(theme, `colors.${variant}.contrastText`)};
-    background-color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
+    color: ${({ theme, variant }) => get(theme, `colorsLight.${variant}.contrastText`)}; // rever
+    background-color: ${({ theme, variant }) => get(theme, `colorsLight.${variant}.color`)}; // rever
 `;
 
 export const Button = styled.button`
@@ -31,6 +32,9 @@ export const Button = styled.button`
       ${TextStyleVariantsMap.paragraph1}
     `,
     })}
+
+    ${propToStyle('margin')}
+    ${propToStyle('display')}
 
     transition: opacity ${({ theme }) => theme.transition};
     border-radius: ${({ theme }) => theme.borderRadius};
