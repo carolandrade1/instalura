@@ -24,14 +24,14 @@ const Button = styled.button`
     border-radius: 8px;
 
     ${breakpointsMedia({
-        xs: css`
+    xs: css`
       ${TextStyleVariantsMap.smallestException}
     `,
-        md: css`
+    md: css`
       padding: 12px 43px;
       ${TextStyleVariantsMap.paragraph1}
     `,
-    })}
+  })}
 
     ${propToStyle('margin')}
     ${propToStyle('display')}
