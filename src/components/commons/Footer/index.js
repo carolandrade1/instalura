@@ -9,7 +9,7 @@ export default function Footer(props) {
             <a href="https://www.alura.com.br/" target="_blank" rel="noopener noreferrer">
                 <img src="https://www.alura.com.br/assets/img/alura-logo.svg" width="57.82" height="24" alt="Logo Alura" />
             </a>
-            <Text tag="p" variant="paragraph2">
+            <Text tag="p" variant="paragraph2" color="tertiary.light">
                 Orgulhosamente criado por
                 {' '}
                 <a href="https://github.com/carolandrade1" target="_blank" rel="noopener noreferrer">

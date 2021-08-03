@@ -1,8 +1,10 @@
 import React from 'react';
-import Logo from '../../../theme/Logo';
+import { Logo } from '../../../theme/Logo';
 import Text from '../../foundation/Text';
+import IconTheme, { ToggleButton } from '../../foundation/Toggle';
 import { Button } from '../Button';
 import { MenuWrapper } from './styles/MenuWrapper';
+import { Theme } from '../../foundation/Toggle';
 
 const links = [
     {

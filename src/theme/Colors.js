@@ -1,10 +1,7 @@
 export const colorsLight = {
     background: {
-        light: {
-            color: '#FFFFFF',
-        },
         main: {
-            color: '#F2F2F2',
+            color: '#FFFFFF', // rever
         },
     },
     borders: {
@@ -34,6 +31,11 @@ export const colorsLight = {
             contrastText: '#fff',
         },
     },
+    svg: {
+        main: {
+            color: '#000000',
+        },
+    },
 };
 
 export const colorsDark = {
@@ -55,7 +57,7 @@ export const colorsDark = {
     },
     secondary: {
         main: {
-            color: '#FB7B6B',
+            color: '#FFA59A',
             contrastText: '#fff',
         },
     },
@@ -67,6 +69,11 @@ export const colorsDark = {
         light: {
             color: '#88989E',
             contrastText: '#030506',
+        },
+    },
+    svg: {
+        main: {
+            color: '#FFFFFF',
         },
     },
 };

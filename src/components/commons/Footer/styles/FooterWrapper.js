@@ -13,7 +13,7 @@ export const FooterWrapper = styled.footer`
     margin-right: 23px;
   }
   a {
-    color: ${({ theme }) => theme.colorsLight.primary.main.color}; // rever
+    color: ${({ theme }) => theme.colors.primary.main.color}; // rever
     text-decoration: none;
     cursor: pointer;
     transition: .3s;
