@@ -3,7 +3,7 @@ import Text from '../../foundation/Text';
 import FooterWrapper from './styles/FooterWrapper';
 
 export default function Footer(props) {
-    return (
+  return (        
         // eslint-disable-next-line react/jsx-props-no-spreading
         <FooterWrapper {...props}>
             <a href="https://www.alura.com.br/" target="_blank" rel="noopener noreferrer">
@@ -20,5 +20,5 @@ export default function Footer(props) {
                 </a>
             </Text>
         </FooterWrapper>
-    );
+  );
 }

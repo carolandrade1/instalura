@@ -54,6 +54,7 @@ const TextBase = styled.span`
 
 export default function Text({ tag, variant, children, ...props }) {
   return (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <TextBase as={tag} variant={variant} {...props}>
             {children}
         </TextBase>

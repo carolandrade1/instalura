@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }) {
         <ToggleButton onClick={themeToggle}>
           <IconTheme theme={theme} />
         </ToggleButton>
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component {...pageProps} />
       </ThemeProvider>
     </>
