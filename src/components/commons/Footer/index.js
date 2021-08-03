@@ -1,6 +1,6 @@
 import React from 'react';
 import Text from '../../foundation/Text';
-import { FooterWrapper } from './styles/FooterWrapper';
+import FooterWrapper from './styles/FooterWrapper';
 
 export default function Footer(props) {
     return (

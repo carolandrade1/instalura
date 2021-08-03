@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 
 export default function IndexHead() {
@@ -10,8 +11,7 @@ export default function IndexHead() {
                 <meta name="author" content="Carol Andrade Santos" />
                 <meta name="keywords" content="Next.js, JAMStack, Alura, Instalura" />
                 <meta httpEquiv="content-language" content="pt-br, en-US" />
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />            
-
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 {/* Open Graph / Facebook */}
                 <meta property="og:url" content="https://instalura-cas.vercel.app/" />
                 <meta property="og:type" content="website" />
@@ -21,7 +21,6 @@ export default function IndexHead() {
                 <meta property="og:image:width" content="800" />
                 <meta property="og:image:height" content="600" />
                 <meta property="og:description" content="Vem conferir o projeto do Bootcamp Front-End Avançado da Alura!" />
-                
                 {/* Links */}
                 <link rel="icon" sizes="32x32" href="https://i.postimg.cc/pVmd1F18/alura-Iconalura-Icon.png" type="image/png" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />

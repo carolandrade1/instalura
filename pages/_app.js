@@ -6,17 +6,15 @@ import IndexHead from '../src/components/commons/Head';
 import IconTheme, { ToggleButton } from '../src/components/foundation/Toggle';
 
 export default function App({ Component, pageProps }) {
-  
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState('light');
 
   const themeToggle = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light")
+    theme === 'light' ? setTheme('dark') : setTheme('light')
   };
-  
   return (
     <>
       <IndexHead />
-      <ThemeProvider theme={theme === "light" ? ThemeLight : ThemeDark}>
+      <ThemeProvider theme={theme === 'light' ? ThemeLight : ThemeDark}>
         <GlobalStyle />
         <ToggleButton onClick={themeToggle}>
           <IconTheme theme={theme} />
@@ -24,5 +22,5 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </ThemeProvider>
     </>
-  )
+  );
 }

@@ -2,42 +2,42 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
-import { propToStyle } from '../../../theme/utils/propToStyle';
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import propToStyle from '../../../theme/utils/propToStyle';
+import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 export const TextStyleVariantsMap = {
-    title: css`
+  title: css`
         ${({ theme }) => css`
             font-size: ${theme.typographyVariants.titleXS.fontSize};
             font-weight: ${theme.typographyVariants.titleXS.fontWeight};
             line-height: ${theme.typographyVariants.titleXS.lineHeight};
         `}
-        ${breakpointsMedia({
-            md: css`
-                ${({ theme }) => css`
-                    font-size: ${theme.typographyVariants.title.fontSize};
-                    font-weight: ${theme.typographyVariants.title.fontWeight};
-                    line-height: ${theme.typographyVariants.title.lineHeight};
-                `}
-            `,
-        })}
+    ${breakpointsMedia({
+    md: css`
+        ${({ theme }) => css`
+            font-size: ${theme.typographyVariants.title.fontSize};
+            font-weight: ${theme.typographyVariants.title.fontWeight};
+            line-height: ${theme.typographyVariants.title.lineHeight};
+        `}
     `,
-    subTitle: css`
+  })}
+    `,
+  subTitle: css`
         font-size: ${({ theme }) => theme.typographyVariants.subTitle.fontSize};
         font-weight: ${({ theme }) => theme.typographyVariants.subTitle.fontWeight};
         line-height: ${({ theme }) => theme.typographyVariants.subTitle.lineHeight};
     `,
-    paragraph1: css`
+  paragraph1: css`
         font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
         font-weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontWeight};
         line-height: ${({ theme }) => theme.typographyVariants.paragraph1.lineHeight};
     `,
-    paragraph2: css`
+  paragraph2: css`
         font-size: ${({ theme }) => theme.typographyVariants.paragraph2.fontSize};
         font-weight: ${({ theme }) => theme.typographyVariants.paragraph2.fontWeight};
         line-height: ${({ theme }) => theme.typographyVariants.paragraph2.lineHeight};
     `,
-    smallestException: css`
+  smallestException: css`
         font-size: ${({ theme }) => theme.typographyVariants.smallestException.fontSize};
         font-weight: ${({ theme }) => theme.typographyVariants.smallestException.fontWeight};
         line-height: ${({ theme }) => theme.typographyVariants.smallestException.lineHeight};
@@ -47,24 +47,26 @@ export const TextStyleVariantsMap = {
 const TextBase = styled.span`
     ${(props) => TextStyleVariantsMap[props.variant]};
     color: ${ ({ theme, color }) => get(theme, `colors.${color}.color`)}; // rever
-    ${propToStyle('textAlign')}; // rever
+    ${propToStyle('textAlign')}
+    ${propToStyle('marginTop')}
+    ${propToStyle('margin')} // rever
 `;
 
 export default function Text({ tag, variant, children, ...props }) {
-    return (
+  return (
         <TextBase as={tag} variant={variant} {...props}>
             {children}
         </TextBase>
-    );
+  );
 }
 
 Text.propTypes = {
-    tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span']),
-    variant: PropTypes.oneOf(['title', 'subTitle', 'paragraph1', 'paragraph2', 'smallestException']),
-    children: PropTypes.node.isRequired,
+  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span']),
+  variant: PropTypes.oneOf(['title', 'subTitle', 'paragraph1', 'paragraph2', 'smallestException']),
+  children: PropTypes.node.isRequired,
 }
 
 Text.defaultProps = {
-    tag: 'span',
-    variant: 'paragraph1',
+  tag: 'span',
+  variant: 'paragraph1',
 };

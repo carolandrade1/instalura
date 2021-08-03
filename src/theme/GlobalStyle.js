@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   * {
       box-sizing: border-box;
       background-color: ${(props) => {return props.theme.colors.background.main.color;}};
-  }
+  };
 
   ${normalize}
 
@@ -27,3 +27,5 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
 `;
+
+export { GlobalStyle as default };
