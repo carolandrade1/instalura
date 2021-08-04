@@ -6,7 +6,7 @@ import Button from '../src/components/commons/Button';
 import Box from '../src/components/foundation/Layout/Box';
 import Grid from '../src/components/foundation/Layout/Grid';
 
-export default function Home() {
+export default function Home({ theme, setTheme }) {
   return (
     <Box
       flex="1"
@@ -18,7 +18,7 @@ export default function Home() {
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
-      <Menu />
+      <Menu theme={theme} setTheme={setTheme} />
 
       <Grid.Container
         marginTop={{

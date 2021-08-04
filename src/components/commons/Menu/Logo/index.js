@@ -3,7 +3,7 @@ import { ThemeContext } from 'styled-components';
 
 export default function Logo() {
   const themeContext = useContext(ThemeContext);
-  const color = themeContext.colors.svg.main.color;
+  const {color} = themeContext.colors.svg.main;
 
   return (
     <svg width="96" height="24" viewBox="0 0 131 32" fill="none" xmlns="http://www.w3.org/2000/svg" >

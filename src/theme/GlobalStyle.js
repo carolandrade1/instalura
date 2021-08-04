@@ -3,8 +3,7 @@ import { normalize } from 'styled-normalize';
 
 export const GlobalStyle = createGlobalStyle`
   * {
-      box-sizing: border-box;
-      background-color: ${(props) => {return props.theme.colors.background.main.color;}};
+    box-sizing: border-box;
   };
 
   ${normalize}
@@ -13,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: ${({ theme }) => theme.fontFamily};
+    background-color: ${({ theme }) => theme.colors.background.main.color};
   }
 
   /* Full height layout */

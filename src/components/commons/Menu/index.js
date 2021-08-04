@@ -3,6 +3,7 @@ import Logo from './Logo';
 import Text from '../../foundation/Text';
 import Button from '../Button';
 import MenuWrapper from './styles/MenuWrapper';
+import IconTheme, { ToggleButton } from '../../foundation/Toggle';
 
 const links = [
   {
@@ -19,7 +20,8 @@ const links = [
   },
 ];
 
-export default function Menu() {
+export default function Menu({ theme, setTheme }) {
+  const themeToggle = () => theme === 'light' ? setTheme('dark') : setTheme('light');
 
   return (
         <MenuWrapper>
@@ -27,17 +29,18 @@ export default function Menu() {
                 <Logo />
             </MenuWrapper.LeftSide>
             <MenuWrapper.CentralSide>
-                {links.map(function (link) {
-                  return (
-                        <Text tag="li" variant="smallestException" key={link.url}>
-                            <a href={link.url}>
-                                {link.texto}
-                            </a>
-                        </Text>
-                  )
-                })}
+                {links.map((link) => 
+                    <Text tag="li" variant="smallestException" key={link.url}>
+                        <a href={link.url}>
+                            {link.texto}
+                        </a>
+                    </Text>
+                )}
             </MenuWrapper.CentralSide>
             <MenuWrapper.RightSide>
+                <ToggleButton onClick={themeToggle}>
+                  <IconTheme theme={theme} />
+                </ToggleButton>
                 <Button type="button" ghost variant="secondary.main">Entrar</Button>
                 <Button type="button" variant="primary.main">Cadastrar</Button>
             </MenuWrapper.RightSide>
