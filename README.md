@@ -1,12 +1,10 @@
-<h1 align="center">
-<a href="https://www.figma.com/file/HwMEsYgZ7aJ6fKvLW024D0/Instalura-Icon?node-id=0%3A1" target="_blank" rel="noopener noreferrer" title="Ícone Instalura Figma"><img src="https://i.postimg.cc/MZddxKkV/alura-Iconalura-Icon.png" alt="Ícone Instalura" width="100" height=""/></a>
-<a href="https://instalura-cas.vercel.app/" target="_blank" rel="noopener noreferrer" title="Site Instalura"><img width="400" alt="Instalura" src="https://user-images.githubusercontent.com/65976843/127219934-d447ab22-4ad6-4706-9c8d-ffc8f810f146.png" /></a>
-</h1>
+<h2 align="center">
+<a href="https://www.figma.com/file/HwMEsYgZ7aJ6fKvLW024D0/Instalura-Icon?node-id=0%3A1" target="_blank" rel="noopener noreferrer" title="Ícone Instalura Figma"><img src="https://i.postimg.cc/MZddxKkV/alura-Iconalura-Icon.png" alt="Ícone Instalura" width="80" height=""/></a>
+<a href="https://instalura-cas.vercel.app/" target="_blank" rel="noopener noreferrer" title="Site Instalura"><img width="300" alt="Instalura" src="https://user-images.githubusercontent.com/65976843/127219934-d447ab22-4ad6-4706-9c8d-ffc8f810f146.png" /></a>
+</h2>
 O projeto é uma versão do Instagram, criado com React, Next/js e styled-components. Desenvolvido durante o Bootcamp Front-End Avançado da Alura, o projeto é composto por 6 módulos principais, onde foram separados por etapas de aprendizado.
-<br>
-<br>
+
 <h3 align="center"><a href="https://instalura-cas.vercel.app/" target="_blank" rel="noopener noreferrer">Clique aqui para ver o andamento do projeto!</a><h3>
-<br>
 <br>
 
 ## 📺 Imagens/Links
@@ -14,15 +12,15 @@ O projeto é uma versão do Instagram, criado com React, Next/js e styled-compon
 <a href="https://www.figma.com/file/Veefm1pjkeTFcJC7BUqHge/Instalura?node-id=0%3A1" target="_blank" rel="noopener noreferrer">Layout do projeto no Figma</a>
 <br>
 <br>
-<a href="https://www.figma.com/file/HwMEsYgZ7aJ6fKvLW024D0/Instalura-Icon?node-id=0%3A1" target="_blank" rel="noopener noreferrer" title="Ícone Instalura Figma"><img src="https://i.postimg.cc/MZddxKkV/alura-Iconalura-Icon.png" alt="Ícone Instalura" width="100" height=""/></a>
+<a href="https://www.figma.com/file/HwMEsYgZ7aJ6fKvLW024D0/Instalura-Icon?node-id=0%3A1" target="_blank" rel="noopener noreferrer" title="Ícone Instalura Figma"><img src="https://i.postimg.cc/MZddxKkV/alura-Iconalura-Icon.png" alt="Ícone Instalura" width="80" height=""/></a>
 <br>
 <br>
-<a href="https://instalura-cas.vercel.app/" target="_blank" rel="noopener noreferrer" title="Pagina inicial Site Instalura"><img src="https://i.postimg.cc/sDzsFmrv/homepage-Desktop-1.png" alt="Pagina inicial Instalura" width="800" height=""/> </a>
+<a href="https://instalura-cas.vercel.app/" target="_blank" rel="noopener noreferrer" title="Pagina inicial Site Instalura"><img src="https://i.postimg.cc/sDzsFmrv/homepage-Desktop-1.png" alt="Pagina inicial Instalura" width="600" height=""/> </a>
 <br>
 <br>
 
 ## 📦 Módulos
-    [ ] Módulo 01: JAMStack e layout com React
+    [x] Módulo 01: JAMStack e layout com React
     [ ] Módulo 02: State e Forms + boas práticas de Git e GitHub
     [ ] Módulo 03: Se aprofundando no NextJS
     [ ] Módulo 04: Testes com Cypress, Jest e React Testing Library
