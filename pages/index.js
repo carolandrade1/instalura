@@ -43,7 +43,11 @@ export default function Home({ theme, setTheme }) {
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...propsDoModal}
           >
-            <div>
+            <div 
+              style={{
+                width: '459px',
+              }}
+            >
               Nosso conteúdo pro modal
             </div>
           </Box>
