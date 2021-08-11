@@ -17,7 +17,11 @@ export default function Home({ theme, setTheme }) {
       flexWrap="wrap"
       flexDirection="column"
       justifyContent="space-between"
-      backgroundImage="url(/images/bubbles.svg)"
+      backgroundImage={
+        theme === 'light'
+          ? 'url(/images/bubbles.svg)'
+          : 'url(/images/bubbles_dark.svg)'
+      }
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
