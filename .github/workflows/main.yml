@@ -31,6 +31,6 @@ jobs:
       - name: Node Version
         run: node -v
       - name: Install de dependencias
-        run: yarn install
+        run: npm install
       - name: Roda o Linter!
-        run: yarn lint
+        run: npm lint
