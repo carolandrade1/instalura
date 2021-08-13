@@ -47,7 +47,7 @@ export default function Home({ theme, setTheme }) {
         )}
       </Modal>
 
-      <Menu theme={theme} setTheme={setTheme} />
+      <Menu theme={theme} setTheme={setTheme} setModalState={setModalState} isModalOpen={isModalOpen} />
 
       <Grid.Container
         marginTop={{
@@ -103,8 +103,6 @@ export default function Home({ theme, setTheme }) {
               }}
               display="block"
               onClick={() => {
-                // isModalOpen = true;
-                console.log('isModalOpen', isModalOpen);
                 setModalState(!isModalOpen); // novo state sendo atribuido
               }}
             >

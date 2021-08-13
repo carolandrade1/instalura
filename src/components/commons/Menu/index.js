@@ -20,7 +20,7 @@ const links = [
   },
 ];
 
-export default function Menu({ theme, setTheme }) {
+export default function Menu({ theme, setTheme, setModalState, isModalOpen }) {
   const themeToggle = () => theme === 'light' ? setTheme('dark') : setTheme('light');
 
   return (
@@ -42,7 +42,14 @@ export default function Menu({ theme, setTheme }) {
                 <IconTheme theme={theme} />
               </ToggleButton>
               <Button type="button" ghost variant="secondary.main">Entrar</Button>
-              <Button type="button" variant="primary.main">Cadastrar</Button>
+              <Button onClick={() => {
+                setModalState(!isModalOpen); // novo state sendo atribuido
+              }}
+              type="button" 
+              variant="primary.main"
+            >
+              Cadastrar
+            </Button>
           </MenuWrapper.RightSide>
       </MenuWrapper>
   )
