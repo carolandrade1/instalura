@@ -19,6 +19,7 @@
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.12.0",
+    "babel-plugin-styled-components": "^1.12.0"
+  },
   "license": "MIT"
 }
