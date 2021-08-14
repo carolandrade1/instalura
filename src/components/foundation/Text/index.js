@@ -42,23 +42,25 @@ export const TextStyleVariantsMap = {
         font-weight: ${({ theme }) => theme.typographyVariants.smallestException.fontWeight};
         line-height: ${({ theme }) => theme.typographyVariants.smallestException.lineHeight};
     `,
-}
+};
 
 const TextBase = styled.span`
     ${(props) => TextStyleVariantsMap[props.variant]};
-    color: ${ ({ theme, color }) => get(theme, `colors.${color}.color`)}; // rever
+    color: ${({ theme, color }) => get(theme, `colors.${color}.color`)}; // rever
     ${propToStyle('textAlign')}
     ${propToStyle('marginTop')}
     ${propToStyle('marginBottom')}
     ${propToStyle('margin')} // rever
 `;
 
-export default function Text({ tag, variant, children, ...props }) {
+export default function Text({
+  tag, variant, children, ...props
+}) {
   return (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <TextBase as={tag} variant={variant} {...props}>
-            {children}
-        </TextBase>
+  // eslint-disable-next-line react/jsx-props-no-spreading
+    <TextBase as={tag} variant={variant} {...props}>
+      {children}
+    </TextBase>
   );
 }
 
@@ -66,7 +68,7 @@ Text.propTypes = {
   tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span', 'input']),
   variant: PropTypes.oneOf(['title', 'subTitle', 'paragraph1', 'paragraph2', 'smallestException']),
   children: PropTypes.node,
-}
+};
 
 Text.defaultProps = {
   tag: 'span',

@@ -112,7 +112,7 @@ const Container = styled.div`
   })}
   
     ${propToStyle('marginTop')}
-`
+`;
 
 const Row = styled.div`
     display: flex;
@@ -123,7 +123,7 @@ const Row = styled.div`
     ${propToStyle('marginLeft')}
     ${propToStyle('marginRight')}
     ${propToStyle('justifyContent')}
-`
+`;
 
 Col.defaultProps = {
   value: {},

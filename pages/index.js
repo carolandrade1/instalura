@@ -8,9 +8,10 @@ import Grid from '../src/components/foundation/Layout/Grid';
 import Modal from '../src/components/commons/Modal';
 import FormCadastro from '../src/components/patterns/FormCadastro';
 
+// eslint-disable-next-line react/prop-types
 export default function Home({ theme, setTheme }) {
   const [isModalOpen, setModalState] = React.useState(false);
-  
+
   return (
     <Box
       flex="1"
@@ -47,7 +48,12 @@ export default function Home({ theme, setTheme }) {
         )}
       </Modal>
 
-      <Menu theme={theme} setTheme={setTheme} setModalState={setModalState} isModalOpen={isModalOpen} />
+      <Menu
+        theme={theme}
+        setTheme={setTheme}
+        setModalState={setModalState}
+        isModalOpen={isModalOpen}
+      />
 
       <Grid.Container
         marginTop={{

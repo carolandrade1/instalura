@@ -20,37 +20,41 @@ const links = [
   },
 ];
 
-export default function Menu({ theme, setTheme, setModalState, isModalOpen }) {
-  const themeToggle = () => theme === 'light' ? setTheme('dark') : setTheme('light');
+export default function Menu({
+  // eslint-disable-next-line react/prop-types
+  theme, setTheme, setModalState, isModalOpen,
+}) {
+  const themeToggle = () => (theme === 'light' ? setTheme('dark') : setTheme('light'));
 
   return (
-      <MenuWrapper>
-          <MenuWrapper.LeftSide>
-              <Logo />
-          </MenuWrapper.LeftSide>
-          <MenuWrapper.CentralSide>
-              {links.map((link) => 
-                  <Text tag="li" variant="smallestException" key={link.url}>
-                      <a href={link.url}>
-                          {link.texto}
-                      </a>
-                  </Text>
-              )}
-          </MenuWrapper.CentralSide>
-          <MenuWrapper.RightSide>
-              <ToggleButton onClick={themeToggle}>
-                <IconTheme theme={theme} />
-              </ToggleButton>
-              <Button type="button" ghost variant="secondary.main">Entrar</Button>
-              <Button onClick={() => {
-                setModalState(!isModalOpen); // novo state sendo atribuido
-              }}
-              type="button" 
-              variant="primary.main"
-            >
-              Cadastrar
-            </Button>
-          </MenuWrapper.RightSide>
-      </MenuWrapper>
-  )
+    <MenuWrapper>
+      <MenuWrapper.LeftSide>
+        <Logo />
+      </MenuWrapper.LeftSide>
+      <MenuWrapper.CentralSide>
+        {links.map((link) => (
+          <Text tag="li" variant="smallestException" key={link.url}>
+            <a href={link.url}>
+              {link.texto}
+            </a>
+          </Text>
+        ))}
+      </MenuWrapper.CentralSide>
+      <MenuWrapper.RightSide>
+        <ToggleButton onClick={themeToggle}>
+          <IconTheme theme={theme} />
+        </ToggleButton>
+        <Button type="button" ghost variant="secondary.main">Entrar</Button>
+        <Button
+          onClick={() => {
+            setModalState(!isModalOpen); // novo state sendo atribuido
+          }}
+          type="button"
+          variant="primary.main"
+        >
+          Cadastrar
+        </Button>
+      </MenuWrapper.RightSide>
+    </MenuWrapper>
+  );
 }

@@ -4,7 +4,7 @@ import { ThemeLight, ThemeDark } from '../src/theme';
 import { GlobalStyle } from '../src/theme/GlobalStyle';
 import IndexHead from '../src/components/commons/Head';
 
-
+// eslint-disable-next-line react/prop-types
 export default function App({ Component, pageProps }) {
   const [theme, setTheme] = useState('light');
 
