@@ -11,6 +11,8 @@
     "commit": "cz"
   },
   "dependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "framer-motion": "^4.1.17",
     "lodash": "^4.17.21",
     "next": "^11.1.0",
