@@ -12,7 +12,8 @@ const formStates = {
   ERROR: 'ERROR',
 };
 
-function FormContent() {
+// eslint-disable-next-line react/prop-types
+function FormContent({ setModalState }) {
   const [isFormSubmited, setIsFormSubmited] = React.useState(false);
   const [submissionStatus, setSubmissionStatus] = React.useState(formStates.DEFAULT);
   const [userInfo, setUserInfo] = React.useState({
@@ -68,18 +69,21 @@ function FormContent() {
           });
       }}
     >
-      {/* <Button
-                variant="primary.main"
-                ghost
-                style={{
-                  position: 'absolute',
-                  top: '30px',
-                  right: '30px',
-                  padding: '0px',
-                }}
-            >
-                Fechar
-            </Button> */}
+      <Button
+        onClick={() => {
+          setModalState(false);
+        }}
+        variant="primary.main"
+        ghost
+        style={{
+          position: 'absolute',
+          top: '30px',
+          right: '30px',
+          padding: '0px',
+        }}
+      >
+        Fechar
+      </Button>
       <Text
         variant="title"
         tag="h1"
@@ -156,7 +160,7 @@ function FormContent() {
 }
 
 // eslint-disable-next-line react/prop-types
-export default function FormCadastro({ propsDoModal }) {
+export default function FormCadastro({ propsDoModal, setModalState }) {
   return (
     <Grid.Row
       marginLeft={0}
@@ -181,10 +185,10 @@ export default function FormCadastro({ propsDoModal }) {
             md: '85px',
           }}
           backgroundColor="white"
-                    // eslint-disable-next-line react/jsx-props-no-spreading
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...propsDoModal}
         >
-          <FormContent />
+          <FormContent setModalState={setModalState} />
         </Box>
       </Grid.Col>
     </Grid.Row>
