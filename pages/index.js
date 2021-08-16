@@ -44,7 +44,7 @@ export default function Home({ theme, setTheme }) {
         }}
       >
         {(propsDoModal) => (
-          <FormCadastro propsDoModal={propsDoModal} />
+          <FormCadastro propsDoModal={propsDoModal} setModalState={setModalState} />
         )}
       </Modal>
 
