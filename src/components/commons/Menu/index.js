@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Logo from './Logo';
 import Text from '../../foundation/Text';
 import Button from '../Button';
@@ -22,7 +23,7 @@ const links = [
 
 export default function Menu({
   // eslint-disable-next-line react/prop-types
-  theme, setTheme, setModalState, isModalOpen,
+  theme, setTheme, onCadastrarClick,
 }) {
   const themeToggle = () => (theme === 'light' ? setTheme('dark') : setTheme('light'));
 
@@ -44,11 +45,11 @@ export default function Menu({
         <ToggleButton onClick={themeToggle}>
           <IconTheme theme={theme} />
         </ToggleButton>
-        <Button type="button" ghost variant="secondary.main">Entrar</Button>
+        <Button type="button" ghost variant="secondary.main" href="/app/login">
+          Entrar
+        </Button>
         <Button
-          onClick={() => {
-            setModalState(!isModalOpen); // novo state sendo atribuido
-          }}
+          onClick={onCadastrarClick}
           type="button"
           variant="primary.main"
         >
@@ -58,3 +59,7 @@ export default function Menu({
     </MenuWrapper>
   );
 }
+
+Menu.propTypes = {
+  onCadastrarClick: PropTypes.func.isRequired,
+};
