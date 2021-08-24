@@ -51,8 +51,7 @@ export default function Home({ theme, setTheme }) {
       <Menu
         theme={theme}
         setTheme={setTheme}
-        setModalState={setModalState}
-        isModalOpen={isModalOpen}
+        onCadastrarClick={() => setModalState(true)}
       />
 
       <Grid.Container
