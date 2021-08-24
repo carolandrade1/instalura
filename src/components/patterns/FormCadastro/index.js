@@ -13,7 +13,7 @@ const formStates = {
 };
 
 // eslint-disable-next-line react/prop-types
-function FormContent({ setModalState }) {
+function FormContent({ onCadastrarClick }) {
   const [isFormSubmited, setIsFormSubmited] = React.useState(false);
   const [submissionStatus, setSubmissionStatus] = React.useState(formStates.DEFAULT);
   const [userInfo, setUserInfo] = React.useState({
@@ -70,9 +70,7 @@ function FormContent({ setModalState }) {
       }}
     >
       <Button
-        onClick={() => {
-          setModalState(false);
-        }}
+        onClick={onCadastrarClick}
         variant="primary.main"
         ghost
         style={{
@@ -160,7 +158,7 @@ function FormContent({ setModalState }) {
 }
 
 // eslint-disable-next-line react/prop-types
-export default function FormCadastro({ propsDoModal, setModalState }) {
+export default function FormCadastro({ propsDoModal, onCadastrarClick }) {
   return (
     <Grid.Row
       marginLeft={0}
@@ -188,7 +186,7 @@ export default function FormCadastro({ propsDoModal, setModalState }) {
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...propsDoModal}
         >
-          <FormContent setModalState={setModalState} />
+          <FormContent onCadastrarClick={onCadastrarClick} />
         </Box>
       </Grid.Col>
     </Grid.Row>

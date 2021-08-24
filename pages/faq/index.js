@@ -1,13 +1,37 @@
 import React from 'react';
-import Menu from '../../src/components/commons/Menu';
-import Footer from '../../src/components/commons/Footer';
-import Box from '../../src/components/foundation/Layout/Box';
+import PropTypes from 'prop-types';
+import FAQScreen from '../../src/components/screens/FAQScreen';
 
-export default function Faq() {
+export default function FAQPage({ faqCategories }) {
+  // REACT WAY
+  // const [faqCategories, setFaqCategories] = React.useState([]);
+
+  // React.useEffect(() => {
+  //   fetch('https://instalura-api.vercel.app/api/content/faq').then(async (res) => {
+  //     const response = await res.json();
+  //     return response.data;
+  //   })
+  //     .then((faqCategoriesFromServer) => {
+  //       setFaqCategories(faqCategoriesFromServer);
+  //     });
+  // });
+
   return (
-    <Box>
-      <Menu />
-      <Footer />
-    </Box>
+    <FAQScreen faqCategories={faqCategories} />
   );
 }
+
+export async function getStaticProps() {
+  const faqCategories = await fetch('https://instalura-api.vercel.app/api/content/faq')
+    .then((respostaDoServer) => respostaDoServer.json())
+    .then((respostaConvertida) => respostaConvertida.data);
+  return {
+    props: {
+      faqCategories,
+    },
+  };
+}
+
+FAQPage.propTypes = {
+  faqCategories: PropTypes.arrayOf.isRequired,
+};
