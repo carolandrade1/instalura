@@ -7,6 +7,7 @@ import Box from '../src/components/foundation/Layout/Box';
 import Grid from '../src/components/foundation/Layout/Grid';
 import Modal from '../src/components/commons/Modal';
 import FormCadastro from '../src/components/patterns/FormCadastro';
+import SEO from '../src/components/commons/SEO';
 
 // eslint-disable-next-line react/prop-types
 export default function Home({ theme, setTheme }) {
@@ -27,7 +28,7 @@ export default function Home({ theme, setTheme }) {
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
-
+      <SEO headTitle="Home" />
       {/*
         [SOLID]
         S = Single Responsability
