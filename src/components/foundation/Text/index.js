@@ -57,8 +57,8 @@ const TextBase = styled.span`
 export default function Text({
   tag, variant, children, href, ...props
 }) {
-  if (href) {
-    return (
+  return href
+    ? (
       <TextBase
         as={Link}
         variant={variant}
@@ -68,15 +68,13 @@ export default function Text({
       >
         {children}
       </TextBase>
+    )
+    : (
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      <TextBase as={tag} href={href} variant={variant} {...props}>
+        {children}
+      </TextBase>
     );
-  }
-
-  return (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-    <TextBase as={Link} href={href} variant={variant} {...props}>
-      {children}
-    </TextBase>
-  );
 }
 
 Text.propTypes = {

@@ -1,13 +1,28 @@
 import React from 'react';
-import Menu from '../../src/components/commons/Menu';
-import Footer from '../../src/components/commons/Footer';
+import styled from 'styled-components';
 import Box from '../../src/components/foundation/Layout/Box';
+import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
-export default function Sobre() {
+const Title = styled.h1`
+  text-align: center;
+`;
+
+function AboutPage() {
   return (
-    <Box>
-      <Menu />
-      <Footer />
+    <Box
+      display="flex"
+      flexDirection="column"
+      flex="1"
+    >
+      <Title>Sobre</Title>
     </Box>
   );
 }
+
+export default websitePageHOC(AboutPage, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Sobre',
+    },
+  },
+});
