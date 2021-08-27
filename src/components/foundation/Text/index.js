@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
+import Link from '../../commons/Link';
 import propToStyle from '../../../theme/utils/propToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
@@ -54,19 +55,32 @@ const TextBase = styled.span`
 `;
 
 export default function Text({
-  tag, variant, children, ...props
+  tag, variant, children, href, ...props
 }) {
-  return (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-    <TextBase as={tag} variant={variant} {...props}>
-      {children}
-    </TextBase>
-  );
+  return href
+    ? (
+      <TextBase
+        as={Link}
+        variant={variant}
+        href={href}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
+      >
+        {children}
+      </TextBase>
+    )
+    : (
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      <TextBase as={tag} href={href} variant={variant} {...props}>
+        {children}
+      </TextBase>
+    );
 }
 
 Text.propTypes = {
-  tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'a', 'span', 'input']),
-  variant: PropTypes.oneOf(['title', 'subTitle', 'paragraph1', 'paragraph2', 'smallestException']),
+  tag: PropTypes.string,
+  href: PropTypes.string,
+  variant: PropTypes.string,
   children: PropTypes.node,
 };
 
@@ -74,4 +88,5 @@ Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
   children: null,
+  href: '',
 };

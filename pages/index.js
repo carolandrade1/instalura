@@ -1,60 +1,19 @@
 import React from 'react';
-import Menu from '../src/components/commons/Menu';
-import Footer from '../src/components/commons/Footer';
 import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import Box from '../src/components/foundation/Layout/Box';
 import Grid from '../src/components/foundation/Layout/Grid';
-import Modal from '../src/components/commons/Modal';
-import FormCadastro from '../src/components/patterns/FormCadastro';
-import SEO from '../src/components/commons/SEO';
+import { WebsitePageContext } from '../src/components/wrappers/WebsitePage';
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
 // eslint-disable-next-line react/prop-types
-export default function Home({ theme, setTheme }) {
-  const [isModalOpen, setModalState] = React.useState(false);
+function HomeScreen() {
+  const websitePageContext = React.useContext(WebsitePageContext);
 
   return (
     <Box
       flex="1"
-      display="flex"
-      flexWrap="wrap"
-      flexDirection="column"
-      justifyContent="space-between"
-      backgroundImage={
-        theme === 'light'
-          ? 'url(/images/bubbles.svg)'
-          : 'url(/images/bubbles_dark.svg)'
-      }
-      backgroundRepeat="no-repeat"
-      backgroundPosition="bottom right"
     >
-      <SEO headTitle="Home" />
-      {/*
-        [SOLID]
-        S = Single Responsability
-        O = Open Closed
-        L = Liskov Substitution
-        I = Interface Segregation
-        D = Dependency Inversion
-      */}
-      {/* {isModalOpen && <Modal />} */}
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => {
-          setModalState(false);
-        }}
-      >
-        {(propsDoModal) => (
-          <FormCadastro propsDoModal={propsDoModal} setModalState={setModalState} />
-        )}
-      </Modal>
-
-      <Menu
-        theme={theme}
-        setTheme={setTheme}
-        onCadastrarClick={() => setModalState(true)}
-      />
-
       <Grid.Container
         marginTop={{
           xs: '32px',
@@ -108,9 +67,7 @@ export default function Home({ theme, setTheme }) {
                 md: 'initial',
               }}
               display="block"
-              onClick={() => {
-                setModalState(!isModalOpen); // novo state sendo atribuido
-              }}
+              onClick={() => websitePageContext.toggleModalCadastro()}
             >
               Cadastrar
             </Button>
@@ -126,8 +83,19 @@ export default function Home({ theme, setTheme }) {
           </Grid.Col>
         </Grid.Row>
       </Grid.Container>
-
-      <Footer />
     </Box>
   );
 }
+
+export default websitePageHOC(HomeScreen, {
+  pageWrapperProps: {
+    seoProps: {
+      headTitle: 'Home',
+    },
+    pageBoxProps: {
+      backgroundImage: 'url(/images/bubbles.svg)',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'bottom right',
+    },
+  },
+});

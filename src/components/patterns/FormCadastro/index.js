@@ -13,7 +13,7 @@ const formStates = {
 };
 
 // eslint-disable-next-line react/prop-types
-function FormContent({ onCadastrarClick }) {
+function FormContent() {
   const [isFormSubmited, setIsFormSubmited] = React.useState(false);
   const [submissionStatus, setSubmissionStatus] = React.useState(formStates.DEFAULT);
   const [userInfo, setUserInfo] = React.useState({
@@ -69,19 +69,6 @@ function FormContent({ onCadastrarClick }) {
           });
       }}
     >
-      <Button
-        onClick={onCadastrarClick}
-        variant="primary.main"
-        ghost
-        style={{
-          position: 'absolute',
-          top: '30px',
-          right: '30px',
-          padding: '0px',
-        }}
-      >
-        Fechar
-      </Button>
       <Text
         variant="title"
         tag="h1"
