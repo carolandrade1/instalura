@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import Logo from './Logo';
-import Text from '../../foundation/Text';
 import Button from '../Button';
 import MenuWrapper from './styles/MenuWrapper';
-import IconTheme, { ToggleButton } from '../../foundation/Toggle';
 
 const links = [
   {
@@ -21,12 +20,7 @@ const links = [
   },
 ];
 
-export default function Menu({
-  // eslint-disable-next-line react/prop-types
-  theme, setTheme, onCadastrarClick,
-}) {
-  const themeToggle = () => (theme === 'light' ? setTheme('dark') : setTheme('light'));
-
+export default function Menu({ onCadastrarClick }) {
   return (
     <MenuWrapper>
       <MenuWrapper.LeftSide>
@@ -34,17 +28,14 @@ export default function Menu({
       </MenuWrapper.LeftSide>
       <MenuWrapper.CentralSide>
         {links.map((link) => (
-          <Text tag="li" variant="smallestException" key={link.url}>
-            <a href={link.url}>
+          <li key={link.url}>
+            <Link href={link.url}>
               {link.texto}
-            </a>
-          </Text>
+            </Link>
+          </li>
         ))}
       </MenuWrapper.CentralSide>
       <MenuWrapper.RightSide>
-        <ToggleButton onClick={themeToggle}>
-          <IconTheme theme={theme} />
-        </ToggleButton>
         <Button type="button" ghost variant="secondary.main" href="/app/login">
           Entrar
         </Button>

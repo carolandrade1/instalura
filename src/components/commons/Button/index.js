@@ -13,7 +13,6 @@ const ButtonGhost = css`
 `;
 
 const ButtonDefault = css`
-    color: white;
     color: ${({ theme, variant }) => get(theme, `colors.${variant}.contrastText`)}; // rever
     background-color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)}; // rever
 `;
