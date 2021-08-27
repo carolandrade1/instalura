@@ -19,7 +19,7 @@ const StyledLink = styled.a`
 `;
 
 // eslint-disable-next-line import/prefer-default-export
-export const Link = ({ children, href, ...props }) => (
+const Link = ({ children, href, ...props }) => (
   <NextLink href={href} passHref>
     {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     <StyledLink {...props}>
@@ -32,3 +32,5 @@ Link.propTypes = {
   href: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
+
+export default Link;
