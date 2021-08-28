@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import FAQScreen from '../../src/components/screens/FAQScreen';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
@@ -29,7 +28,3 @@ export async function getStaticProps() {
     }, // will be passed to the page component as props
   };
 }
-
-FAQPage.propTypes = {
-  faqCategories: PropTypes.arrayOf.isRequired,
-};
