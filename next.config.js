@@ -1,20 +1,25 @@
-// next.config.js
+const redirects = require('./config/redirects');
+
 module.exports = {
   i18n: {
     locales: ['pt-BR'],
     defaultLocale: 'pt-BR',
   },
-  async headers() {
-    return [
-      {
-        source: '/:path*/',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-        ],
-      },
-    ];
+  trailingSlash: true,
+  async redirects() {
+    return redirects;
   },
+  // async headers() {
+  //   return [
+  //     {
+  //       source: '/:path*/',
+  //       headers: [
+  //         {
+  //           key: 'X-Frame-Options',
+  //           value: 'DENY',
+  //         },
+  //       ],
+  //     },
+  //   ];
+  // },
 };
