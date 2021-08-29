@@ -43,7 +43,7 @@ MenuWrapper.LeftSide = styled.div`
   })}
 `;
 
-MenuWrapper.CentralSide = styled.div`
+MenuWrapper.CentralSide = styled.ul`
     padding: 0;
     margin: 0;
     order: 3;
