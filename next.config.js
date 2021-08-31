@@ -9,17 +9,17 @@ module.exports = {
   async redirects() {
     return redirects;
   },
-  // async headers() {
-  //   return [
-  //     {
-  //       source: '/:path*/',
-  //       headers: [
-  //         {
-  //           key: 'X-Frame-Options',
-  //           value: 'DENY',
-  //         },
-  //       ],
-  //     },
-  //   ];
-  // },
+  async headers() {
+    return [
+      {
+        source: '/:path*/',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+        ],
+      },
+    ];
+  },
 };
