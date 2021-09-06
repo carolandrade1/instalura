@@ -7,7 +7,7 @@ import Grid from '../../src/components/foundation/Layout/Grid';
 import Text from '../../src/components/foundation/Text';
 import { WebsitePageContext } from '../../src/components/wrappers/WebsitePage';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
-import Logo from '../../src/components/commons/Menu';
+import Logo from '../../src/theme/Logo';
 
 function LoginForm() {
   return (
