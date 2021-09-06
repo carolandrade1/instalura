@@ -127,6 +127,8 @@ const Row = styled.div`
     ${propToStyle('marginLeft')}
     ${propToStyle('marginRight')}
     ${propToStyle('marginBottom')}
+    ${propToStyle('display')}
+    ${propToStyle('alignItems')}
 `;
 
 Col.defaultProps = {
