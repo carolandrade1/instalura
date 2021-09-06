@@ -113,6 +113,9 @@ const Container = styled.div`
   })}
   
     ${propToStyle('marginTop')}
+    ${propToStyle('display')}
+    ${propToStyle('flex')}
+    ${propToStyle('alignItems')}
 `;
 
 const Row = styled.div`
@@ -127,6 +130,8 @@ const Row = styled.div`
     ${propToStyle('marginLeft')}
     ${propToStyle('marginRight')}
     ${propToStyle('marginBottom')}
+    ${propToStyle('display')}
+    ${propToStyle('alignItems')}
 `;
 
 Col.defaultProps = {
