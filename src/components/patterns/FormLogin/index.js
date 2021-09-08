@@ -2,27 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
-
-function useForm({ initialValues, onSubmit }) {
-  const [values, setValues] = React.useState(initialValues);
-
-  return {
-    values,
-    handleSubmit(event) {
-      event.preventDefault();
-      onSubmit(values);
-    },
-    handleChange(event) {
-      const fieldName = event.target.getAttribute('name');
-      const { value } = event.target;
-
-      setValues((currentValues) => ({
-        ...currentValues,
-        [fieldName]: value,
-      }));
-    },
-  };
-}
+import { useForm } from '../../../infra/hooks/forms/useForm';
 
 function LoginForm() {
   const router = useRouter();
@@ -33,6 +13,7 @@ function LoginForm() {
 
   const form = useForm({
     initialValues,
+    // eslint-disable-next-line no-unused-vars
     onSubmit: (values) => {
       router.push('/app/profile');
     },
