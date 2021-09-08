@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
 import { useForm } from '../../../infra/hooks/forms/useForm';
+import { loginService } from '../../../services/login/loginService';
 
 function LoginForm() {
   const router = useRouter();
@@ -13,9 +14,14 @@ function LoginForm() {
 
   const form = useForm({
     initialValues,
-    // eslint-disable-next-line no-unused-vars
     onSubmit: (values) => {
-      router.push('/app/profile');
+      loginService.login({
+        username: values.usuario, // 'omariosouto'
+        password: values.senha, // 'senhasegura'
+      })
+        .then(() => {
+          router.push('/app/profile');
+        });
     },
   });
 
