@@ -10,7 +10,8 @@
     "prepare": "husky install",
     "commit": "cz",
     "custom-script": "node ./script-test.js",
-    "test:integration:open": "cypress open"
+    "test:integration:open": "cypress open",
+    "test:integration": "cypress run --headless"
   },
   "dependencies": {
     "@commitlint/cli": "^13.1.0",
