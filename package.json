@@ -11,7 +11,9 @@
     "commit": "cz",
     "custom-script": "node ./script-test.js",
     "test:integration:open": "cypress open",
-    "test:integration": "cypress run --headless"
+    "test:integration": "cypress run --headless",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@commitlint/cli": "^13.1.0",
