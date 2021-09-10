@@ -1,16 +1,11 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../../infra/test/testUtils';
 
 import TextField from './index';
-import WebSiteGlobalProvider from '../../wrappers/WebsitePage/provider';
 
 describe('<TextField />', () => {
   test('renders component', () => {
-    render(
-      <WebSiteGlobalProvider>
-        <TextField placeholder="Nome" value="ju" onChange={() => { }} name="nome" />
-      </WebSiteGlobalProvider>,
-    );
+    render(<TextField placeholder="Nome" value="ju" onChange={() => { }} name="nome" />);
 
     const textField = screen.getByPlaceholderText(/nome/i);
     expect(textField).toMatchSnapshot();
