@@ -49,6 +49,7 @@ function LoginForm() {
           md: 'initial',
         }}
         fullWidth
+        disabled={form.isFormDisabled}
       >
         Entrar
       </Button>
