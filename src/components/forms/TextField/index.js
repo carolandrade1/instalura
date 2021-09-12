@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import Text from '../../foundation/Text';
 
@@ -14,6 +14,14 @@ const Input = styled(Text)`
   padding: 12px 16px;
   outline: 0;
   border-radius: ${({ theme }) => theme.borderRadius};
+
+  ${({ theme, isFieldInvalid }) => isFieldInvalid && css`
+    border-color: ${theme.colors.error.main.color};
+    & + span {
+      color: ${theme.colors.error.main.color};
+      font-size: 11px;
+    }
+  `}
 `;
 
 Input.defaultProps = {
@@ -29,7 +37,17 @@ export default function TextField({
 
   return (
     <InputWrapper>
-      <Input type="text" placeholder={placeholder} name={name} onChange={onChange} value={value} {...props} />
+      <Input
+        type="text"
+        placeholder={placeholder}
+        name={name}
+        onChange={onChange}
+        value={value}
+        isFieldInvalid={isFieldInvalid}
+
+        // eslint-disable-next-line react/jsx-props-no-multi-spaces
+        {...props}
+      />
       {isFieldInvalid && (
         <Text variant="smallestException" color="error.main" role="alert">
           {error}
