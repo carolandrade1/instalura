@@ -5,6 +5,7 @@ export function useForm({ initialValues, onSubmit, validateSchema }) {
   const [values, setValues] = React.useState(initialValues);
   const [isFormDisabled, setIsFormDisabled] = React.useState(true);
   const [errors, setErrors] = React.useState({});
+  const [touched, setTouchedFields] = React.useState({});
 
   React.useEffect(() => {
     if (values.usuario.length > 0) {
@@ -48,5 +49,14 @@ export function useForm({ initialValues, onSubmit, validateSchema }) {
     },
     isFormDisabled,
     errors,
+    touched,
+    handleBlur(event) {
+      const fieldName = event.target.getAttribute('name');
+
+      setTouchedFields({
+        ...touched,
+        [fieldName]: true,
+      });
+    },
   };
 }

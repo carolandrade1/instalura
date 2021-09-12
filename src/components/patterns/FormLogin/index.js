@@ -44,6 +44,8 @@ function LoginForm() {
         value={form.values.usuario}
         onChange={form.handleChange}
         error={form.errors.usuario}
+        onBlur={form.handleBlur}
+        isTouched={form.touched.usuario}
       />
       <TextField
         placeholder="Senha"
@@ -52,6 +54,8 @@ function LoginForm() {
         value={form.values.senha}
         onChange={form.handleChange}
         error={form.errors.senha}
+        onBlur={form.handleBlur}
+        isTouched={form.touched.senha}
       />
 
       <Button
@@ -67,7 +71,7 @@ function LoginForm() {
         Entrar
       </Button>
       <pre>
-        {JSON.stringify(form.errors, null, 2)}
+        {JSON.stringify(form.touched, null, 2)}
       </pre>
     </form>
   );
