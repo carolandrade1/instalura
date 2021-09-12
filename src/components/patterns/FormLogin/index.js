@@ -43,6 +43,7 @@ function LoginForm() {
         name="usuario"
         value={form.values.usuario}
         onChange={form.handleChange}
+        error={form.errors.usuario}
       />
       <TextField
         placeholder="Senha"
@@ -50,6 +51,7 @@ function LoginForm() {
         type="password"
         value={form.values.senha}
         onChange={form.handleChange}
+        error={form.errors.senha}
       />
 
       <Button

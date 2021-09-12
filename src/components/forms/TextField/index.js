@@ -22,18 +22,31 @@ Input.defaultProps = {
 };
 
 export default function TextField({
-  placeholder, name, onChange, value, ...props
+  placeholder, name, onChange, value, error, ...props
 }) {
+  const hasError = Boolean(error);
+  const isFieldInvalid = hasError;
+
   return (
     <InputWrapper>
       <Input type="text" placeholder={placeholder} name={name} onChange={onChange} value={value} {...props} />
+      {isFieldInvalid && (
+        <Text variant="smallestException" color="error.main" role="alert">
+          {error}
+        </Text>
+      )}
     </InputWrapper>
   );
 }
+
+TextField.defaultProps = {
+  error: '',
+};
 
 TextField.propTypes = {
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
+  error: PropTypes.string,
 };
