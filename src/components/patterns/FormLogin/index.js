@@ -21,12 +21,20 @@ function LoginForm() {
   const form = useForm({
     initialValues,
     onSubmit: (values) => {
+      form.setIsFormDisabled(true);
       loginService.login({
         username: values.usuario, // 'omariosouto'
         password: values.senha, // 'senhasegura'
       })
         .then(() => {
           router.push('/app/profile');
+        })
+        .catch((error) => {
+          // eslint-disable-next-line no-console
+          console.error(error);
+        })
+        .finally(() => {
+          form.setIsFormDisabled(false);
         });
     },
     async validateSchema(values) {
@@ -70,9 +78,6 @@ function LoginForm() {
       >
         Entrar
       </Button>
-      <pre>
-        {JSON.stringify(form.touched, null, 2)}
-      </pre>
     </form>
   );
 }
