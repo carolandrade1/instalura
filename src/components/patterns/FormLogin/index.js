@@ -1,9 +1,15 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import * as yup from 'yup';
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
 import { useForm } from '../../../infra/hooks/forms/useForm';
 import { loginService } from '../../../services/login/loginService';
+
+const loginSchema = yup.object().shape({
+  usuario: yup.string().required('"Usuário é obrigatório"').min(3, 'Preencha ao menos 3 caracteres'),
+  senha: yup.string().min(8, 'Sua senha precisa ter ao menos 8 caracteres'),
+});
 
 function LoginForm() {
   const router = useRouter();
@@ -22,6 +28,11 @@ function LoginForm() {
         .then(() => {
           router.push('/app/profile');
         });
+    },
+    async validateSchema(values) {
+      return loginSchema.validate(values, {
+        abortEarly: false,
+      });
     },
   });
 
@@ -53,6 +64,9 @@ function LoginForm() {
       >
         Entrar
       </Button>
+      <pre>
+        {JSON.stringify(form.errors, null, 2)}
+      </pre>
     </form>
   );
 }
