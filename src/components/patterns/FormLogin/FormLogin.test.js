@@ -1,13 +1,18 @@
 import React from 'react';
 import user from '@testing-library/user-event';
 import FormLogin from './index';
-import { render, act, screen, waitFor } from '../../../infra/test/testUtils';
+import {
+  render, act, screen, waitFor,
+} from '../../../infra/test/testUtils';
+
+const onSubmit = jest.fn();
+onSubmit.mockImplementation((event) => {
+  event.preventDefault();
+});
 
 describe('<FormLogin />', () => {
   describe('when from fields are valid', () => {
     test('complete the submission', async () => {
-      const onSubmit = jest.fn();
-
       await act(async () => render(
         <FormLogin
           onSubmit={onSubmit}
