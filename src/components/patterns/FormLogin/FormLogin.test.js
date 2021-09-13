@@ -38,4 +38,18 @@ describe('<FormLogin />', () => {
       expect(onSubmit).toHaveBeenCalledTimes(1);
     });
   });
+
+  describe('when form fields are invalid', () => {
+    test('displays the respective errors', async () => {
+      render(<FormLogin onSubmit={onSubmit} />);
+
+      const inputUsuario = screen.getByPlaceholderText('Usuário');
+      inputUsuario.focus();
+      inputUsuario.blur();
+
+      await waitFor(() => screen.getByRole('alert'));
+
+      expect(screen.getByRole('alert')).toHaveTextContent('Preencha ao menos 3 caracteres');
+    });
+  });
 });
