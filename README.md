@@ -21,9 +21,9 @@ O projeto é uma versão do Instagram, criado com React, Next/js e styled-compon
 
 ## 📦 Módulos
     [x] Módulo 01: JAMStack e layout com React
-    [ ] Módulo 02: State e Forms + boas práticas de Git e GitHub
-    [ ] Módulo 03: Se aprofundando no NextJS
-    [ ] Módulo 04: Testes com Cypress, Jest e React Testing Library
+    [x] Módulo 02: State e Forms + boas práticas de Git e GitHub
+    [x] Módulo 03: Se aprofundando no NextJS
+    [x] Módulo 04: Testes com Cypress, Jest e React Testing Library
     [ ] Módulo 05: Área autenticada e gerenciador de conteúdo (CMS)
     [ ] Módulo 06: Storybook + TypeScript
 
