@@ -1,21 +1,40 @@
 import React from 'react';
-import styled from 'styled-components';
-import Box from '../../src/components/foundation/Layout/Box';
+import { GraphQLClient, gql } from 'graphql-request';
+import PropTypes from 'prop-types';
+import AboutScreen from '../../src/components/screens/AboutScreen';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
-const Title = styled.h1`
-  text-align: center;
-`;
+export async function getStaticProps() {
+  const TOKEN = process.env.DATO_CMS_TOKEN;
+  const DatoCMSURL = 'https://graphql.datocms.com/';
 
-function AboutPage() {
+  const client = new GraphQLClient(DatoCMSURL, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+    },
+  });
+
+  const query = gql`
+    query {
+      pageSobre {
+        pageTitle
+        pageDescription
+      }
+    }
+  `;
+
+  const messages = await client.request(query);
+
+  return {
+    props: {
+      messages,
+    },
+  };
+}
+
+function AboutPage({ messages }) {
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      flex="1"
-    >
-      <Title>Sobre</Title>
-    </Box>
+    <AboutScreen messages={messages} />
   );
 }
 
@@ -26,3 +45,8 @@ export default websitePageHOC(AboutPage, {
     },
   },
 });
+
+AboutPage.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  messages: PropTypes.object.isRequired,
+};

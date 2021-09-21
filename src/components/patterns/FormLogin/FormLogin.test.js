@@ -33,7 +33,7 @@ describe('<FormLogin />', () => {
 
       user.click(screen.getByRole('button'));
 
-      screen.debug();
+      // screen.debug();
 
       expect(onSubmit).toHaveBeenCalledTimes(1);
     });
