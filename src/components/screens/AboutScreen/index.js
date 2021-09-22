@@ -4,7 +4,9 @@ import Box from '../../foundation/Layout/Box';
 import Grid from '../../foundation/Layout/Grid';
 import Text from '../../foundation/Text';
 
-export default function AboutScreen({ messages }) {
+export { getContent } from './getContent';
+
+function AboutScreen({ messages }) {
   return (
     <Box
       display="flex"
@@ -45,3 +47,5 @@ AboutScreen.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   messages: PropTypes.object.isRequired,
 };
+
+export default AboutScreen;
