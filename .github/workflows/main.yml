@@ -83,6 +83,5 @@ jobs:
 
       - name: Run Integration Tests
         env:
-          NEXT_PUBLIC_DATOCMS_KEY: ${{ secrets.NEXT_PUBLIC_DATOCMS_KEY }}
-          NEXT_PUBLIC_DATOCMS_URL: ${{ secrets.NEXT_PUBLIC_DATOCMS_URL }}
+          DATO_CMS_TOKEN: ${{ secrets.DATO_CMS_TOKEN }}
         run: yarn test:integration:build 
