@@ -82,4 +82,7 @@ jobs:
         run: yarn --prefer-offline
 
       - name: Run Integration Tests
+        env:
+          NEXT_PUBLIC_DATOCMS_KEY: ${{ secrets.NEXT_PUBLIC_DATOCMS_KEY }}
+          NEXT_PUBLIC_DATOCMS_URL: ${{ secrets.NEXT_PUBLIC_DATOCMS_URL }}
         run: yarn test:integration:build 
