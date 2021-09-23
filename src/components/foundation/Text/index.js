@@ -6,6 +6,8 @@ import Link from '../../commons/Link';
 import propToStyle from '../../../theme/utils/propToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
+import { WebsitePageContext } from '../../wrappers/WebsitePage/context';
+
 export const TextStyleVariantsMap = {
   title: css`
         ${({ theme }) => css`
@@ -47,34 +49,45 @@ export const TextStyleVariantsMap = {
 
 const TextBase = styled.span`
     ${(props) => TextStyleVariantsMap[props.variant]};
-    color: ${({ theme, color }) => get(theme, `colors.${color}.color`)}; // rever
+    color: ${({ theme, color }) => get(theme, `colors.${color}.color`)};
     ${propToStyle('textAlign')}
     ${propToStyle('marginTop')}
     ${propToStyle('marginBottom')}
-    ${propToStyle('margin')} // rever
+    ${propToStyle('margin')}
 `;
 
 export default function Text({
-  tag, variant, children, href, ...props
+  tag, variant, children, href, cmsKey, ...props
 }) {
-  return href
-    ? (
+  const websitePageContext = React.useContext(WebsitePageContext);
+
+  const componentContent = cmsKey
+    ? websitePageContext.getCMSContent(cmsKey)
+    : children;
+
+  if (href) {
+    return (
       <TextBase
         as={Link}
-        variant={variant}
         href={href}
+        variant={variant}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
       >
-        {children}
-      </TextBase>
-    )
-    : (
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      <TextBase as={tag} href={href} variant={variant} {...props}>
-        {children}
+        {componentContent}
       </TextBase>
     );
+  }
+  return (
+    <TextBase
+      as={tag}
+      variant={variant}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+    >
+      {componentContent}
+    </TextBase>
+  );
 }
 
 Text.propTypes = {
@@ -82,6 +95,7 @@ Text.propTypes = {
   href: PropTypes.string,
   variant: PropTypes.string,
   children: PropTypes.node,
+  cmsKey: PropTypes.string,
 };
 
 Text.defaultProps = {
@@ -89,4 +103,5 @@ Text.defaultProps = {
   variant: 'paragraph1',
   children: null,
   href: '',
+  cmsKey: undefined,
 };
