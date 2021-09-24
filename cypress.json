@@ -1,5 +1,8 @@
 {
     "baseUrl": "http://localhost:3000",
     "video": false,
-    "testFiles": "pages/*/*.spec.js"
+    "testFiles": "pages/*/*.spec.js",
+    "requestTimeout": 10000,
+    "execTimeout": 10000,
+    "defaultCommandTimeout": 10000
 }
