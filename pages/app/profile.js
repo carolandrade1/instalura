@@ -2,13 +2,13 @@ import React from 'react';
 import { authService } from '../../src/services/auth/authService';
 import { userService } from '../../src/services/user/userService';
 
-export default function ProfilePage(props) {
+export default function ProfilePage() {
   return (
     <div>
       Página de Profile!
-      <pre>
+      {/* <pre>
         {JSON.stringify(props, null, 4)}
-      </pre>
+      </pre> */}
       <img src="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif" alt="Nicolas Cage" />
     </div>
   );
