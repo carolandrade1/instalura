@@ -1,13 +1,25 @@
 import styled, { css } from 'styled-components';
 import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 
-export const Header = styled.header`
-  background-color: white;
-  padding: 27px 0;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.tertiary.light.color}; 
+const ContainerHeader = styled.header`
+  background-color: ${({ theme }) => theme.colors.background.main.color};
+  padding-top: 12px;
+  padding-bottom: 16px;
+  border-bottom: none;
+  position: fixed;
+  width: 100%; 
+
+  ${breakpointsMedia({
+    md: css`
+      padding-top: 27px;
+      padding-bottom: 25px;
+      background-color: ${({ theme }) => theme.colors.background.light.color};
+      border-bottom: 1px solid #D4D4D4;
+    `,
+  })}
 `;
 
-const MenuUserWrapper = styled.nav`
+export const Header = styled.nav`
   font-family: 'Rubik', sans-serif;
   display: flex;
   align-items: center;
@@ -30,32 +42,45 @@ const MenuUserWrapper = styled.nav`
   })}
 `;
 
-MenuUserWrapper.LeftSide = styled.div`
-  padding: 0;
+export const ContainerLogo = styled.div`
   margin: 0;
+  padding: 0;
 `;
 
-MenuUserWrapper.RightSide = styled.div`
-  display: none;
-  justify-content: right;
+export const ContainerNavbar = styled.div`
+  display: inline-block;
+  justify-content: center;
   align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 12px 26px;
+  background-color: white;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
 
   ${breakpointsMedia({
     md: css`
       display: flex;
+      justify-content: right;
+      position: initial;
       width: 100%;
+      padding: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     `,
   })}
+`;
 
-  .inputContainer {
-    display: none;
+export const InputContainer = styled.div`
+  display: none;
     
     ${breakpointsMedia({
     md: css`
       display: flex;
       align-items: center;
       justify-content: left;
-      max-width: 288px;
+      width: 288px;
       max-height: 44px;
       border: 1px solid;
       border-radius: 12px;
@@ -73,25 +98,138 @@ MenuUserWrapper.RightSide = styled.div`
 
     ${breakpointsMedia({
     md: css`
-        display: initial;
-        `,
+      display: initial;
+    `,
   })}
     }
-  }
+`;
 
-  button {
-    width: 32px;
-    height: 32px;
+export const Navbar = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  ${breakpointsMedia({
+    md: css`
+      width: 224px;
+    `,
+  })}
+
+  button, a, div {
+    width: 24px;
+    height: 24px;
     padding: 0;
     background-color: transparent;
+
+    ${breakpointsMedia({
+    md: css`
+      width: 32px;
+      height: 32px;
+    `,
+  })}
   }
 
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 224px;
+  img {
+    width: 24px;
+    height: 24px;
+
+  ${breakpointsMedia({
+    md: css`
+      width: 32px;
+      height: 32px;
+    `,
+  })}
+  }
+
+  .search {
+    display: inicial;
+
+    ${breakpointsMedia({
+    md: css`
+      display: none;
+    `,
+  })}
+    img {
+      filter: brightness(0%);
+    } 
+  }
+
+  .postbutton {
+    width: 40px;
+    height: 40px;
+
+    .post {
+      width: 40px;
+      height: 40px;
+
+      ${breakpointsMedia({
+    md: css`
+      width: 32px;
+      height: 32px;
+    `,
+  })}
+    }
+
+    ${breakpointsMedia({
+    md: css`
+    order: 0;
+    width: 32px;
+    height: 32px;
+  `,
+  })}
+  }
+
+  button:not(:first-child) {
+    width: 24px;
+    height: 24px;
+
+    ${breakpointsMedia({
+    md: css`
+      width: 32px;
+      height: 32px;
+    `,
+  })}
+  }
+
+  .postdiv {
+    width: 40px;
+    height: 40px;
+
+    ${breakpointsMedia({
+    md: css`
+      width: 32px;
+      height: 32px;
+    `,
+  })}
+  }
+
+  div:nth-child(1n) {
+    order: 3;
+
+    ${breakpointsMedia({
+    md: css`
+      order: 0;
+    `,
+  })}
+  }
+  div:nth-child(2n) {
+    order: 2;
+  }
+  div:nth-child(3n) {
+    order: 1;
+  }
+  div:nth-child(4n) {
+    order: 4;
+  }
+  div:nth-child(5n) {
+    order: 5;
+    border-radius: 50%;
+
+    img {
+      border-radius: 50%;
+    }
   }
 `;
 
-export { MenuUserWrapper as default };
+export default ContainerHeader;
