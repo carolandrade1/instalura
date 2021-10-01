@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { render } from '@testing-library/react';
-import WebsiteGlobalProvider from '../../components/wrappers/WebsitePage/provider';
+import WebsiteGlobalProvider from '../../components/wrappers/provider';
 
 const AllTheProviders = ({ children, ...props }) => (
   <WebsiteGlobalProvider {...props}>

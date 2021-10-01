@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileScreen from '../../src/components/screens/ProfileScreen';
+import FeedScreen from '../../src/components/screens/FeedScreen';
 import websiteUserPageHOC from '../../src/components/wrappers/WebsiteUserPage/hoc';
 import { authService } from '../../src/services/auth/authService';
 import { userService } from '../../src/services/user/userService';
@@ -30,19 +30,19 @@ export async function getServerSideProps(ctx) {
   };
 }
 
-function ProfilePage(props) {
+function FeedPage(props) {
   return (
-    <ProfileScreen props={props} />
+    <FeedScreen props={props} />
     // <pre>
     //   {JSON.stringify(props, null, 4)}
     // </pre>
   );
 }
 
-export default websiteUserPageHOC(ProfilePage, {
+export default websiteUserPageHOC(FeedPage, {
   pageWrapperProps: {
     seoProps: {
-      headTitle: 'Profile',
+      headTitle: 'Feed',
     },
   },
 });

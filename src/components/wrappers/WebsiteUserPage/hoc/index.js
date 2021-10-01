@@ -2,22 +2,22 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import WebsitePageWrapper from '..';
+import WebsiteUserPageWrapper from '..';
 import WebsiteGlobalProvider from '../../provider';
 
-export default function websitePageHOC(
+export default function websiteUserPageHOC(
   PageComponent,
   { pageWrapperProps } = { pageWrapperProps: {} },
 ) {
   return (props) => (
     <WebsiteGlobalProvider>
-      <WebsitePageWrapper
+      <WebsiteUserPageWrapper
         {...pageWrapperProps}
         {...props.pageWrapperProps}
         messages={props.messages}
       >
         <PageComponent {...props} />
-      </WebsitePageWrapper>
+      </WebsiteUserPageWrapper>
     </WebsiteGlobalProvider>
   );
 }
