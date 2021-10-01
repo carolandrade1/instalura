@@ -19,7 +19,7 @@
     "build/start": "yarn build && yarn start"
   },
   "dependencies": {
-    "@commitlint/cli": "^13.1.0",
+    "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@types/jest": "^27.0.1",
     "framer-motion": "^4.1.17",
