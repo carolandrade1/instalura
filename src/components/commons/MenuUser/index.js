@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ContainerHeader, {
   ContainerLogo, ContainerNavbar, InputContainer, Navbar, Header,
 } from './style/MenuUserWrapper';
 import Logo from '../../../theme/Logo';
 import Button from '../Button';
 
-export default function MenuUser() {
+export default function MenuUser({ onPostClick }) {
   return (
     <ContainerHeader>
       <Header>
@@ -21,7 +22,11 @@ export default function MenuUser() {
           </InputContainer>
           <Navbar>
             <div className="postdiv">
-              <Button className="postbutton">
+              <Button
+                className="postbutton"
+                onClick={onPostClick}
+                type="button"
+              >
                 <img className="post" src="/images/postIcon.svg" alt="Icone para post" />
               </Button>
             </div>
@@ -31,7 +36,7 @@ export default function MenuUser() {
               </Button>
             </div>
             <div>
-              <Button href="/profile">
+              <Button href="/app/feed">
                 <img src="/images/home.svg" alt="Home" />
               </Button>
             </div>
@@ -41,7 +46,7 @@ export default function MenuUser() {
               </Button>
             </div>
             <div>
-              <Button href="/">
+              <Button href="/app/profile">
                 <img src="https://github.com/carolandrade1.png" alt="Foto perfil" />
               </Button>
             </div>
@@ -51,3 +56,7 @@ export default function MenuUser() {
     </ContainerHeader>
   );
 }
+
+MenuUser.propTypes = {
+  onPostClick: PropTypes.func.isRequired,
+};

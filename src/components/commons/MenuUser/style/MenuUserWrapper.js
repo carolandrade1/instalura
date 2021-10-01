@@ -3,8 +3,8 @@ import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 
 const ContainerHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.background.main.color};
-  padding-top: 12px;
-  padding-bottom: 16px;
+  padding-top: 10px;
+  padding-bottom: 12px;
   border-bottom: none;
   position: fixed;
   width: 100%; 
