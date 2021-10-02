@@ -1,19 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useTheme } from 'styled-components';
 import Grid from '../../foundation/Layout/Grid';
 import Box from '../../foundation/Layout/Box';
 import Text from '../../foundation/Text';
+import { usePageContext } from '../../wrappers/WebsitePage/context';
 
-export default function FAQQuestionScreen({ category, question }) {
+export default function FAQQuestionScreen() {
+  const { category, question } = usePageContext();
   const theme = useTheme();
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      flex="1"
-      justifyContent="center"
-    >
+    <Box display="flex" flexDirection="column" flex="1" justifyContent="center">
       <Grid.Container
         flex="1"
         marginTop={{
@@ -27,15 +23,8 @@ export default function FAQQuestionScreen({ category, question }) {
             md: 'row',
           }}
         >
-          <Grid.Col
-            offset={{ sm: 0, lg: 1 }}
-            value={{ xs: 12, md: 4, lg: 4 }}
-          >
-            <Text
-              variant="title"
-              color="tertiary.main"
-              marginBottom="25px"
-            >
+          <Grid.Col offset={{ sm: 0, lg: 1 }} value={{ xs: 12, md: 4, lg: 4 }}>
+            <Text variant="title" color="tertiary.main" marginBottom="25px">
               Artigos
               <br />
               Relacionados
@@ -69,17 +58,14 @@ export default function FAQQuestionScreen({ category, question }) {
               md: '0',
             }}
           >
-            <Text
-              variant="title"
-              color="tertiary.main"
-            >
+            <Text variant="title" color="tertiary.main">
               {question.title}
             </Text>
             <Text
               as="p"
               variant="paragraph1"
               color="tertiary.light"
-                          // eslint-disable-next-line react/no-danger
+              // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{ __html: question.description }}
             />
           </Grid.Col>
@@ -89,15 +75,17 @@ export default function FAQQuestionScreen({ category, question }) {
   );
 }
 
-FAQQuestionScreen.propTypes = {
-  category: PropTypes.shape({
-    title: PropTypes.string,
-    questions: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string,
-    })),
-  }).isRequired,
-  question: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-  }).isRequired,
-};
+// FAQQuestionScreen.propTypes = {
+//   category: PropTypes.shape({
+//     title: PropTypes.string,
+//     questions: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         title: PropTypes.string,
+//       }),
+//     ),
+//   }).isRequired,
+//   question: PropTypes.shape({
+//     title: PropTypes.string,
+//     description: PropTypes.string,
+//   }).isRequired,
+// };
