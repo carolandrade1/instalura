@@ -32,10 +32,9 @@ export async function getServerSideProps(ctx) {
 
 function ProfilePage(props) {
   return (
-    <ProfileScreen props={props} />
-    // <pre>
-    //   {JSON.stringify(props, null, 4)}
-    // </pre>
+    <>
+      <ProfileScreen props={props} />
+    </>
   );
 }
 

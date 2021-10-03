@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../../foundation/Layout/Box';
 import Grid from '../../foundation/Layout/Grid';
 
-export default function FeedScreen() {
+export default function ProfileScreen() {
   return (
     <Box
       marginTop={{
@@ -18,10 +18,16 @@ export default function FeedScreen() {
       >
         <Grid.Row>
           <Grid.Col
-            offset={{ xs: 0, md: 2 }}
-            value={{ xs: 12, md: 8 }}
+            offset={{ xs: 0, md: 0 }}
+            value={{ xs: 12, md: 6 }}
           >
-            <img src="https://images.ctfassets.net/hrltx12pl8hq/6TOyJZTDnuutGpSMYcFlfZ/4dfab047c1d94bbefb0f9325c54e08a2/01-nature_668593321.jpg?fit=fill&w=480&h=270" alt="" />
+            <img src="" alt="" />
+          </Grid.Col>
+          <Grid.Col
+            offset={{ xs: 0, md: 1 }}
+            value={{ xs: 0, md: 4 }}
+          >
+            <img src="" alt="" />
           </Grid.Col>
         </Grid.Row>
       </Grid.Container>

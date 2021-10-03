@@ -3,6 +3,7 @@ import propToStyle from '../../../../theme/utils/propToStyle';
 
 const Box = styled.div`
   ${propToStyle('flex')}
+  ${propToStyle('order')}
   ${propToStyle('display')}
   ${propToStyle('flexDirection')}
   ${propToStyle('justifyContent')}

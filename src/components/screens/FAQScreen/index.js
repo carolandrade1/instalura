@@ -1,10 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { usePageContext } from '../../wrappers/WebsitePage/context';
 import Text from '../../foundation/Text';
 import Box from '../../foundation/Layout/Box';
 import Grid from '../../foundation/Layout/Grid';
 
-export default function FAQScreen({ faqCategories }) {
+export default function FAQScreen() {
+  const { faqCategories } = usePageContext();
   return (
     <Box
       display="flex"
@@ -80,15 +81,3 @@ export default function FAQScreen({ faqCategories }) {
     </Box>
   );
 }
-
-FAQScreen.propTypes = {
-  faqCategories: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    slug: PropTypes.string,
-    questions: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string,
-      slug: PropTypes.string,
-      description: PropTypes.string,
-    })),
-  })).isRequired,
-};

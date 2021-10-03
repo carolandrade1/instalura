@@ -1,12 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { usePageContext } from '../../wrappers/WebsitePage/context';
 import Box from '../../foundation/Layout/Box';
 import Grid from '../../foundation/Layout/Grid';
 import Text from '../../foundation/Text';
 
 export { getContent } from './getContent';
 
-function AboutScreen({ messages }) {
+function AboutScreen() {
+  const { messages } = usePageContext();
   return (
     <Box
       display="flex"
@@ -41,10 +42,5 @@ function AboutScreen({ messages }) {
     </Box>
   );
 }
-
-AboutScreen.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  messages: PropTypes.object.isRequired,
-};
 
 export default AboutScreen;

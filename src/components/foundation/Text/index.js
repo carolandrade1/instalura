@@ -6,7 +6,7 @@ import Link from '../../commons/Link';
 import propToStyle from '../../../theme/utils/propToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
-import { WebsitePageContext } from '../../wrappers/WebsitePage/context';
+import { usePageContext } from '../../wrappers/WebsitePage/context';
 
 export const TextStyleVariantsMap = {
   title: css`
@@ -59,10 +59,10 @@ const TextBase = styled.span`
 export default function Text({
   tag, variant, children, href, cmsKey, ...props
 }) {
-  const websitePageContext = React.useContext(WebsitePageContext);
+  const { getCMSContent } = usePageContext();
 
   const componentContent = cmsKey
-    ? websitePageContext.getCMSContent(cmsKey)
+    ? getCMSContent(cmsKey)
     : children;
 
   if (href) {

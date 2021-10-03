@@ -32,10 +32,12 @@ export async function getServerSideProps(ctx) {
 
 function FeedPage(props) {
   return (
-    <FeedScreen props={props} />
-    // <pre>
-    //   {JSON.stringify(props, null, 4)}
-    // </pre>
+    <>
+      <FeedScreen props={props} />
+      <pre>
+        {JSON.stringify(props, null, 4)}
+      </pre>
+    </>
   );
 }
 
