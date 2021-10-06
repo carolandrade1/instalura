@@ -3,17 +3,15 @@ import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import Box from '../src/components/foundation/Layout/Box';
 import Grid from '../src/components/foundation/Layout/Grid';
-import { WebsitePageContext } from '../src/components/wrappers/WebsitePage';
 import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
+import { usePageContext } from '../src/components/wrappers/WebsitePage/context';
 
 // eslint-disable-next-line react/prop-types
 function HomeScreen() {
-  const websitePageContext = React.useContext(WebsitePageContext);
+  const { toggleModalCadastro } = usePageContext();
 
   return (
-    <Box
-      flex="1"
-    >
+    <Box flex="1">
       <Grid.Container
         marginTop={{
           xs: '32px',
@@ -56,8 +54,8 @@ function HomeScreen() {
                 md: '16px 0 40px 0',
               }}
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+              has been the industrys standard dummy text ever since the 1500s.
             </Text>
 
             <Button
@@ -67,14 +65,12 @@ function HomeScreen() {
                 md: 'initial',
               }}
               display="block"
-              onClick={() => websitePageContext.toggleModalCadastro()}
+              onClick={() => toggleModalCadastro()}
             >
               Cadastrar
             </Button>
           </Grid.Col>
-          <Grid.Col
-            value={{ xs: 12, md: 6 }}
-          >
+          <Grid.Col value={{ xs: 12, md: 6 }}>
             <img
               alt="Imagem de celular com páginas internas do projeto com o perfil do Cage"
               style={{ display: 'block', margin: 'auto' }}

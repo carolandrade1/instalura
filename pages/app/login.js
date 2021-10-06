@@ -3,24 +3,17 @@ import Link from '../../src/components/commons/Link';
 import Box from '../../src/components/foundation/Layout/Box';
 import Grid from '../../src/components/foundation/Layout/Grid';
 import Text from '../../src/components/foundation/Text';
-import { WebsitePageContext } from '../../src/components/wrappers/WebsitePage';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 import Logo from '../../src/theme/Logo';
 import LoginForm from '../../src/components/patterns/FormLogin';
+import { usePageContext } from '../../src/components/wrappers/WebsitePage/context';
 
 function LoginScreen() {
-  const websitePageContext = React.useContext(WebsitePageContext);
+  const { toggleModalCadastro } = usePageContext();
+
   return (
-    <Grid.Container
-      display="flex"
-      flex="1"
-      alignItems="center"
-    >
-      <Grid.Row
-        flex="1"
-        alignItems="center"
-        justifyContent="center"
-      >
+    <Grid.Container display="flex" flex="1" alignItems="center">
+      <Grid.Row flex="1" alignItems="center" justifyContent="center">
         <Grid.Col
           display="flex"
           flexDirection="column"
@@ -36,27 +29,19 @@ function LoginScreen() {
             marginTop="37px"
             marginBottom="37px"
           >
-            <Link
-              href="/"
-              color="secondary.main"
-            >
+            <Link href="/" color="secondary.main">
               <Logo size="large" />
             </Link>
           </Box>
           <LoginForm />
-          <Text
-            variant="paragraph1"
-            tag="p"
-            color="tertiary.light"
-            textAlign="center"
-          >
+          <Text variant="paragraph1" tag="p" color="tertiary.light" textAlign="center">
             {'Não tem uma conta? '}
             <Link
               href="/"
               color="secondary.main"
               onClick={(event) => {
                 event.preventDefault();
-                websitePageContext.toggleModalCadastro();
+                toggleModalCadastro();
               }}
             >
               Cadastre-se
@@ -65,10 +50,7 @@ function LoginScreen() {
         </Grid.Col>
 
         <Grid.Col value={{ xs: 12, md: 6 }}>
-          <Box
-            display="flex"
-            justifyContent="center"
-          >
+          <Box display="flex" justifyContent="center">
             <img
               align="center"
               src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"

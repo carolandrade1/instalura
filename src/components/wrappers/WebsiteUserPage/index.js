@@ -6,7 +6,7 @@ import Modal from '../../commons/Modal';
 import Box from '../../foundation/Layout/Box';
 import FormCadastro from '../../patterns/FormCadastro';
 import SEO from '../../commons/SEO';
-import { WebsitePageContext } from '../WebsitePage/context';
+import { WebsitePageContextProvider } from '../WebsitePage/context';
 
 // export { WebsitePageContext } from './context';
 
@@ -19,7 +19,7 @@ export default function WebsiteUserPageWrapper({
   const [isModalOpen, setModalState] = React.useState(false);
 
   return (
-    <WebsitePageContext.Provider
+    <WebsitePageContextProvider
       value={{
         teste: true,
         toggleModalCadastro: () => {
@@ -55,7 +55,7 @@ export default function WebsiteUserPageWrapper({
         )}
         {children}
       </Box>
-    </WebsitePageContext.Provider>
+    </WebsitePageContextProvider>
   );
 }
 
