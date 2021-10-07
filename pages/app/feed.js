@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import FeedScreen from '../../src/components/screens/FeedScreen';
 import websiteUserPageHOC from '../../src/components/wrappers/WebsiteUserPage/hoc';
@@ -30,13 +31,20 @@ export async function getServerSideProps(ctx) {
   };
 }
 
-function FeedPage(props) {
+function FeedPage({ user, posts }) {
+  // NUMEROS SEGUIDORES-SEGUINDO
+  const [infoGithub, setInfoGithub] = React.useState([]);
+
+  React.useEffect(() => {
+    const githubAPI = `https://api.github.com/users/${user.username}`;
+    fetch(githubAPI)
+      .then((resposta) => resposta.json())
+      .then((respostaJson) => setInfoGithub(respostaJson));
+  }, []);
+
   return (
     <>
-      <FeedScreen props={props} />
-      <pre>
-        {JSON.stringify(props, null, 4)}
-      </pre>
+      <FeedScreen user={user} posts={posts} infoGithub={infoGithub} />
     </>
   );
 }
