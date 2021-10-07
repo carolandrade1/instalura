@@ -62,7 +62,6 @@ export const ListContainer = styled.ul`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  list-style: none;
   padding-left: 0;
 
   ${breakpointsMedia({
@@ -109,6 +108,46 @@ export const User = styled.div`
       padding-left: 50px;
     `,
   })}
+`;
+
+export const FotosContainer = styled.div`
+  max-width: 808px;
+  margin: 0 auto;
+  margin-top: 27px;
+  
+  ${breakpointsMedia({
+    md: css`
+      margin-top: 72px;
+    `,
+  })}
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    padding: 0;
+
+  ${breakpointsMedia({
+    md: css`
+      gap: 30px;
+    `,
+  })}
+  }
+
+  li {
+    height: 112px;
+
+  ${breakpointsMedia({
+    md: css`
+      height: 250px;
+    `,
+  })}
+  }
+
+  img { 
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export default InfoContainer;

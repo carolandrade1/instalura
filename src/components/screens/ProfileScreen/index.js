@@ -3,23 +3,13 @@ import React from 'react';
 import Box from '../../foundation/Layout/Box';
 import Text from '../../foundation/Text';
 import InfoContainer, {
-  Container, ImageContainer, ListContainer, User,
+  Container, FotosContainer, ImageContainer, ListContainer, User,
 } from './style';
 
-export default function ProfileScreen({ props }) {
-  // NUMEROS SEGUIDORES-SEGUINDO
-  const [infoGithub, setInfoGithub] = React.useState([]);
-
-  React.useEffect(() => {
-    const githubAPI = `https://api.github.com/users/${props.user.username}`;
-    fetch(githubAPI)
-      .then((resposta) => resposta.json())
-      .then((respostaJson) => setInfoGithub(respostaJson));
-  }, []);
-
+export default function ProfileScreen({ user, posts, infoGithub }) {
   const Info = [
     {
-      number: `${infoGithub.following}`,
+      number: `${posts.lenght}`,
       title: 'Publicaçoes',
     },
     {
@@ -38,11 +28,12 @@ export default function ProfileScreen({ props }) {
         xs: '48px',
         md: '97px',
       }}
+      backgroundColor="#F2F2F2"
     >
       <Container>
         <InfoContainer>
           <ImageContainer>
-            <img src={`https://github.com/${props.user.username}.png`} alt="" />
+            <img src={`https://github.com/${user.username}.png`} alt="" />
           </ImageContainer>
           <ListContainer>
             {Info.map((item) => (
@@ -73,15 +64,23 @@ export default function ProfileScreen({ props }) {
               {infoGithub.name}
             </Text>
             <Text
-              tag="a"
+              tag="p"
               variant="paragraph1"
               color="tertiary.light"
-              href={infoGithub.blog}
             >
-              😃 Visite meu blog/canal/site!
+              {infoGithub.bio}
             </Text>
           </User>
         </InfoContainer>
+        <FotosContainer>
+          <ul>
+            {posts.map((item) => (
+              <li key={item.id}>
+                <img src={item.photoUrl} alt={item.description} />
+              </li>
+            ))}
+          </ul>
+        </FotosContainer>
       </Container>
     </Box>
   );
