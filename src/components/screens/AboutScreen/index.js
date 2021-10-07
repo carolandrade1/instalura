@@ -1,12 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { usePageContext } from '../../wrappers/WebsitePage/context';
 import Box from '../../foundation/Layout/Box';
 import Grid from '../../foundation/Layout/Grid';
 import Text from '../../foundation/Text';
 
 export { getContent } from './getContent';
 
-function AboutScreen({ messages }) {
+function AboutScreen() {
+  const { messages } = usePageContext();
+  const title = messages.pageSobre.pageTitle;
+  const description = messages.pageSobre.pageDescription;
   return (
     <Box
       display="flex"
@@ -27,12 +30,12 @@ function AboutScreen({ messages }) {
               variant="title"
               tag="h2"
               color="tertiary.main"
-              cmsKey="pageSobre.pageTitle"
+              cmsKey={title}
             />
 
             <Box
               dangerouslySetInnerHTML={{
-                __html: messages.pageSobre.pageDescription,
+                __html: description,
               }}
             />
           </Grid.Col>
@@ -41,10 +44,5 @@ function AboutScreen({ messages }) {
     </Box>
   );
 }
-
-AboutScreen.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  messages: PropTypes.object.isRequired,
-};
 
 export default AboutScreen;

@@ -2,9 +2,9 @@ import React from 'react';
 import FAQScreen from '../../src/components/screens/FAQScreen';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
-function FAQPage({ faqCategories }) {
+function FAQPage() {
   return (
-    <FAQScreen faqCategories={faqCategories} />
+    <FAQScreen />
   );
 }
 
@@ -24,7 +24,9 @@ export async function getStaticProps() {
     .then((respostaConvertida) => respostaConvertida.data);
   return {
     props: {
-      faqCategories,
-    }, // will be passed to the page component as props
+      contextValues: {
+        faqCategories,
+      },
+    },
   };
 }

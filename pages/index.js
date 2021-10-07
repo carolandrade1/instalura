@@ -3,12 +3,12 @@ import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import Box from '../src/components/foundation/Layout/Box';
 import Grid from '../src/components/foundation/Layout/Grid';
-import { WebsitePageContext } from '../src/components/wrappers/WebsitePage';
+import { usePageContext } from '../src/components/wrappers/WebsitePage/context';
 import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
 // eslint-disable-next-line react/prop-types
 function HomeScreen() {
-  const websitePageContext = React.useContext(WebsitePageContext);
+  const { toggleModalCadastro } = usePageContext();
 
   return (
     <Box
@@ -67,7 +67,7 @@ function HomeScreen() {
                 md: 'initial',
               }}
               display="block"
-              onClick={() => websitePageContext.toggleModalCadastro()}
+              onClick={() => toggleModalCadastro()}
             >
               Cadastrar
             </Button>

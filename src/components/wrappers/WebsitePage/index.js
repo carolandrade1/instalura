@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
@@ -8,32 +9,32 @@ import Modal from '../../commons/Modal';
 import Box from '../../foundation/Layout/Box';
 import FormCadastro from '../../patterns/FormCadastro';
 import SEO from '../../commons/SEO';
-import { WebsitePageContext } from './context';
+import { WebsitePageContextProvider } from './context';
 
-export { WebsitePageContext } from './context';
+export { WebsitePageContextProvider } from './context';
 
 export default function WebsitePageWrapper({
   children,
   seoProps,
   pageBoxProps,
   menuProps,
-  messages,
+  contextValues,
 }) {
   const [isModalOpen, setModalState] = React.useState(false);
 
   return (
-    <WebsitePageContext.Provider
+    <WebsitePageContextProvider
       value={{
         teste: true,
         toggleModalCadastro: () => {
           setModalState(!isModalOpen);
         },
-        getCMSContent: (cmsKey) => get(messages, cmsKey),
+        getCMSContent: (cmsKey) => get(contextValues.messages, cmsKey),
+        // faqCategories,
+        ...contextValues,
       }}
     >
-      <SEO
-        {...seoProps}
-      />
+      <SEO {...seoProps} />
 
       <Box
         display="flex"
@@ -47,19 +48,13 @@ export default function WebsitePageWrapper({
             setModalState(false);
           }}
         >
-          {(propsDoModal) => (
-            <FormCadastro propsDoModal={propsDoModal} />
-          )}
+          {(propsDoModal) => (<FormCadastro propsDoModal={propsDoModal} />)}
         </Modal>
-        {menuProps.display && (
-        <Menu
-          onCadastrarClick={() => setModalState(true)}
-        />
-        )}
+        {menuProps.display && (<Menu onCadastrarClick={() => setModalState(true)} />)}
         {children}
         <Footer />
       </Box>
-    </WebsitePageContext.Provider>
+    </WebsitePageContextProvider>
   );
 }
 

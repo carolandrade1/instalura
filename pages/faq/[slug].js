@@ -2,12 +2,9 @@ import React from 'react';
 import FAQQuestionScreen from '../../src/components/screens/FAQQuestionScreen';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
-function FAQInternaScreen({ category, question }) {
+function FAQInternaScreen() {
   return (
-    <FAQQuestionScreen
-      question={question}
-      category={category}
-    />
+    <FAQQuestionScreen />
   );
 }
 
@@ -43,8 +40,10 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      category: dadosDaPagina.category,
-      question: dadosDaPagina.question,
+      contextValues: {
+        category: dadosDaPagina.category,
+        question: dadosDaPagina.question,
+      },
       pageWrapperProps: {
         seoProps: {
           headTitle: dadosDaPagina.question.title,
@@ -67,10 +66,7 @@ export async function getStaticPaths() {
       return { params: { slug: questionSlug } };
     });
 
-    return [
-      ...valorAcumulado,
-      ...questionsPaths,
-    ];
+    return [...valorAcumulado, ...questionsPaths];
   }, []);
 
   return {

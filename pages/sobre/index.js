@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AboutScreen, { getContent } from '../../src/components/screens/AboutScreen';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
@@ -8,14 +7,16 @@ export async function getStaticProps({ preview }) {
 
   return {
     props: {
-      messages,
+      contextValues: {
+        messages,
+      },
     },
   };
 }
 
-function AboutPage({ messages }) {
+function AboutPage() {
   return (
-    <AboutScreen messages={messages} />
+    <AboutScreen />
   );
 }
 
@@ -26,8 +27,3 @@ export default websitePageHOC(AboutPage, {
     },
   },
 });
-
-AboutPage.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  messages: PropTypes.object.isRequired,
-};

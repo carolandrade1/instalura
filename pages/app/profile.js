@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import ProfileScreen from '../../src/components/screens/ProfileScreen';
 import websiteUserPageHOC from '../../src/components/wrappers/WebsiteUserPage/hoc';
@@ -30,12 +31,21 @@ export async function getServerSideProps(ctx) {
   };
 }
 
-function ProfilePage(props) {
+function ProfilePage({ user, posts }) {
+  // NUMEROS SEGUIDORES-SEGUINDO
+  const [infoGithub, setInfoGithub] = React.useState([]);
+
+  React.useEffect(() => {
+    const githubAPI = `https://api.github.com/users/${user.username}`;
+    fetch(githubAPI)
+      .then((resposta) => resposta.json())
+      .then((respostaJson) => setInfoGithub(respostaJson));
+  }, []);
+
   return (
-    <ProfileScreen props={props} />
-    // <pre>
-    //   {JSON.stringify(props, null, 4)}
-    // </pre>
+    <>
+      <ProfileScreen user={user} posts={posts} infoGithub={infoGithub} />
+    </>
   );
 }
 

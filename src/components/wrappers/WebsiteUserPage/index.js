@@ -6,7 +6,7 @@ import Modal from '../../commons/Modal';
 import Box from '../../foundation/Layout/Box';
 import FormCadastro from '../../patterns/FormCadastro';
 import SEO from '../../commons/SEO';
-import { WebsitePageContext } from '../WebsitePage/context';
+import { WebsitePageContextProvider } from '../WebsitePage/context';
 
 // export { WebsitePageContext } from './context';
 
@@ -19,17 +19,11 @@ export default function WebsiteUserPageWrapper({
   const [isModalOpen, setModalState] = React.useState(false);
 
   return (
-    <WebsitePageContext.Provider
+    <WebsitePageContextProvider
       value={{
-        teste: true,
-        toggleModalCadastro: () => {
-          setModalState(!isModalOpen);
-        },
       }}
     >
-      <SEO
-        {...seoProps}
-      />
+      <SEO {...seoProps} />
 
       <Box
         display="flex"
@@ -49,13 +43,11 @@ export default function WebsiteUserPageWrapper({
           )}
         </Modal>
         {menuProps.display && (
-        <MenuUser
-          onPostClick={() => setModalState(true)}
-        />
+        <MenuUser onPostClick={() => setModalState(true)} />
         )}
         {children}
       </Box>
-    </WebsitePageContext.Provider>
+    </WebsitePageContextProvider>
   );
 }
 
@@ -65,7 +57,6 @@ WebsiteUserPageWrapper.defaultProps = {
   menuProps: {
     display: true,
   },
-  messages: {},
 };
 
 WebsiteUserPageWrapper.propTypes = {
@@ -81,6 +72,4 @@ WebsiteUserPageWrapper.propTypes = {
     backgroundPosition: PropTypes.string,
   }),
   children: PropTypes.node.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  messages: PropTypes.object,
 };

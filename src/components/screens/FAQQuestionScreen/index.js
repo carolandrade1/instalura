@@ -1,12 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useTheme } from 'styled-components';
+import { usePageContext } from '../../wrappers/WebsitePage/context';
 import Grid from '../../foundation/Layout/Grid';
 import Box from '../../foundation/Layout/Box';
 import Text from '../../foundation/Text';
 
-export default function FAQQuestionScreen({ category, question }) {
+export default function FAQQuestionScreen() {
   const theme = useTheme();
+  const { category, question } = usePageContext();
   return (
     <Box
       display="flex"
@@ -88,16 +89,3 @@ export default function FAQQuestionScreen({ category, question }) {
     </Box>
   );
 }
-
-FAQQuestionScreen.propTypes = {
-  category: PropTypes.shape({
-    title: PropTypes.string,
-    questions: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string,
-    })),
-  }).isRequired,
-  question: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
-  }).isRequired,
-};
