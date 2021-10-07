@@ -6,8 +6,6 @@ import Link from '../../commons/Link';
 import propToStyle from '../../../theme/utils/propToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
-import { usePageContext } from '../../wrappers/WebsitePage/context';
-
 export const TextStyleVariantsMap = {
   title: css`
         ${({ theme }) => css`
@@ -57,13 +55,11 @@ const TextBase = styled.span`
 `;
 
 export default function Text({
-  tag, variant, children, href, cmsKey, ...props
+  tag, variant, children, href, cmsContent, ...props
 }) {
-  const { getCMSContent } = usePageContext();
+  // const { getCMSContent } = usePageContext();
 
-  const componentContent = cmsKey
-    ? getCMSContent(cmsKey)
-    : children;
+  const componentContent = cmsContent || children;
 
   if (href) {
     return (
@@ -95,7 +91,7 @@ Text.propTypes = {
   href: PropTypes.string,
   variant: PropTypes.string,
   children: PropTypes.node,
-  cmsKey: PropTypes.string,
+  cmsContent: PropTypes.string,
 };
 
 Text.defaultProps = {
@@ -103,5 +99,5 @@ Text.defaultProps = {
   variant: 'paragraph1',
   children: null,
   href: '',
-  cmsKey: undefined,
+  cmsContent: undefined,
 };

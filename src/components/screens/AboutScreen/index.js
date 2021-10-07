@@ -8,6 +8,8 @@ export { getContent } from './getContent';
 
 function AboutScreen() {
   const { messages } = usePageContext();
+  const title = messages.pageSobre.pageTitle;
+  const description = messages.pageSobre.pageDescription;
   return (
     <Box
       display="flex"
@@ -28,12 +30,12 @@ function AboutScreen() {
               variant="title"
               tag="h2"
               color="tertiary.main"
-              cmsKey="pageSobre.pageTitle"
+              cmsKey={title}
             />
 
             <Box
               dangerouslySetInnerHTML={{
-                __html: messages.pageSobre.pageDescription,
+                __html: description,
               }}
             />
           </Grid.Col>
