@@ -2,15 +2,19 @@ import styled, { css } from 'styled-components';
 import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 
 const ContainerHeader = styled.header`
-  background-color: ${({ theme }) => theme.colors.background.main.color};
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 48px; 
   padding-top: 10px;
   padding-bottom: 12px;
   border-bottom: none;
-  position: fixed;
-  width: 100%; 
+  background-color: ${({ theme }) => theme.colors.background.main.color};
 
   ${breakpointsMedia({
     md: css`
+      height: 97px; 
+      padding: 0 16px;
       padding-top: 27px;
       padding-bottom: 25px;
       background-color: ${({ theme }) => theme.colors.background.light.color};
@@ -30,7 +34,6 @@ export const Header = styled.nav`
     md: css`
       justify-content: space-between;
       margin: 0 auto;
-      padding: 0 16px;
       max-width: 768px;
         `,
     lg: css`

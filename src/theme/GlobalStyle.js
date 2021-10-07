@@ -21,10 +21,25 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     width: 100%;
   }
+
   #__next {
     flex: 1;
     display: flex;
     flex-direction: column;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    margin: 0;
   }
 `;
 
