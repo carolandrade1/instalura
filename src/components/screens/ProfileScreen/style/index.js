@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components';
 import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 
 export const Container = styled.section`
-  margin-top: 24px;
+  margin-top: 48px;
   padding: 0 16px;
 
   ${breakpointsMedia({
     md: css`
       margin: 0 auto;
-      margin-top: 63px;
+      margin-top: 160px;
       max-width: 768px;
         `,
     lg: css`
