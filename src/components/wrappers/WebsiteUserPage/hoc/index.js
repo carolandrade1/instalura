@@ -9,14 +9,18 @@ export default function websiteUserPageHOC(
   PageComponent,
   { pageWrapperProps } = { pageWrapperProps: {} },
 ) {
-  return (props) => (
-    <WebsiteGlobalProvider>
-      <WebsiteUserPageWrapper
-        {...pageWrapperProps}
-        {...props.pageWrapperProps}
-      >
-        <PageComponent {...props} />
-      </WebsiteUserPageWrapper>
-    </WebsiteGlobalProvider>
-  );
+  return (props) => {
+    const { contextValues, pageWrapperProps: pageWrapperPropsFromProps, ...rest } = props;
+    return (
+      <WebsiteGlobalProvider>
+        <WebsiteUserPageWrapper
+          {...pageWrapperProps}
+          {...pageWrapperPropsFromProps}
+          contextValues={contextValues}
+        >
+          <PageComponent {...rest} />
+        </WebsiteUserPageWrapper>
+      </WebsiteGlobalProvider>
+    );
+  };
 }
