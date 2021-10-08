@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -8,19 +9,24 @@ import FormCadastro from '../../patterns/FormCadastro';
 import SEO from '../../commons/SEO';
 import { WebsitePageContextProvider } from '../WebsitePage/context';
 
-// export { WebsitePageContext } from './context';
+export { WebsitePageContextProvider } from '../WebsitePage/context';
 
 export default function WebsiteUserPageWrapper({
   children,
   seoProps,
   pageBoxProps,
   menuProps,
+  contextValues,
 }) {
   const [isModalOpen, setModalState] = React.useState(false);
 
   return (
     <WebsitePageContextProvider
       value={{
+        toggleModalCadastro: () => {
+          setModalState(!isModalOpen);
+        },
+        ...contextValues,
       }}
     >
       <SEO {...seoProps} />
@@ -67,9 +73,7 @@ WebsiteUserPageWrapper.propTypes = {
     display: PropTypes.bool,
   }),
   pageBoxProps: PropTypes.shape({
-    backgroundImage: PropTypes.string,
-    backgroundRepeat: PropTypes.string,
-    backgroundPosition: PropTypes.string,
+    backgroundColor: PropTypes.string,
   }),
   children: PropTypes.node.isRequired,
 };

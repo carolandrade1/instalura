@@ -2,20 +2,19 @@ import styled, { css } from 'styled-components';
 import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 
 const Container = styled.section`
-  background-color: #F2F2F2;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 48px;
+  padding: 0 16px;
 
-  .subContainer {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    margin-top: 48px;
-
-    ${breakpointsMedia({
+  ${breakpointsMedia({
     md: css`
-      padding: 0 16px;
       justify-content: space-between;
+      padding: 0;
       margin-top: 97px;
-      max-width: 768px;
+      max-width: 788px;
     `,
     lg: css`
       max-width: 1160px; 
@@ -24,7 +23,6 @@ const Container = styled.section`
       max-width: 1222px;
     `,
   })}
-  }
 `;
 
 export const PostsContainer = styled.section`
@@ -231,7 +229,7 @@ export const ProjetosContainer = styled.section`
   ${breakpointsMedia({
     md: css`
       display: initial;
-      width: 470px;
+      width: 400px;
       margin-top: 24px;
       padding: 0 10px;
     `,
