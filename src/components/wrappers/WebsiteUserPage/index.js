@@ -49,7 +49,7 @@ export default function WebsiteUserPageWrapper({
           )}
         </Modal>
         {menuProps.display && (
-        <MenuUser onPostClick={() => setModalState(true)} />
+        <MenuUser contextValues={contextValues} onPostClick={() => setModalState(true)} />
         )}
         {children}
       </Box>

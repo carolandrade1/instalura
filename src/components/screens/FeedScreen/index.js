@@ -58,7 +58,7 @@ export default function ProfileScreen() {
               <Header>
                 <div className="info">
                   <div className="profilePhoto">
-                    <img src={infoGithub.avatar_url} alt={`Imagem de ${infoGithub.login}`} />
+                    <img src={`https://github.com/${infoGithub.username}.png`} alt="Imagem do perfil" />
                   </div>
                   <Text
                     tag="p"
@@ -109,38 +109,40 @@ export default function ProfileScreen() {
       </PostsContainer>
       <ProjetosContainer>
         <ul>
-          <li key={infoGithub.name}>
+          <li key={infoGithub.username}>
             <Box
               display="flex"
+              alignItems="center"
             >
-              <img src={infoGithub.avatar_url} alt="" />
+              <img src={infoGithub.avatar} alt="Imagem do usuário" className="userAvatar" />
               <Box
                 display="flex"
                 flexDirection="column"
                 padding="10px 16px"
               >
-                <Text tag="p" color="tertiary.main" className="login">
-                  {infoGithub.login}
+                <Text tag="p" variant="paragraph2" color="tertiary.main" className="login">
+                  {infoGithub.username}
                 </Text>
-                <Text tag="p" color="tertiary.light">
+                <Text tag="p" variant="paragraph2" color="tertiary.light">
                   {infoGithub.name}
                 </Text>
               </Box>
             </Box>
-            <a href={infoGithub.html_url} target="_blank" rel="noopener noreferrer">
+            <a href={infoGithub.url} target="_blank" rel="noopener noreferrer">
               <img src="/images/github.svg" alt="Icone Github" />
               <Text tag="p">
                 Github
               </Text>
             </a>
           </li>
-          <Text tag="p" color="tertiary.light" className="title">
+          <Text tag="p" variant="paragraph1" color="tertiary.light" className="title">
             Projetos da galera
           </Text>
           {friends.map((item) => (
             <li key={item.name}>
               <Box
                 display="flex"
+                alignItems="center"
               >
                 <img src={item.avatar} alt="" />
                 <Box
@@ -148,10 +150,10 @@ export default function ProfileScreen() {
                   flexDirection="column"
                   padding="10px 16px"
                 >
-                  <Text tag="p" color="tertiary.main" className="login">
+                  <Text tag="p" variant="paragraph2" color="tertiary.main" className="login">
                     {item.login}
                   </Text>
-                  <Text tag="p" color="tertiary.light">
+                  <Text tag="p" variant="paragraph2" color="tertiary.light">
                     {item.name}
                   </Text>
                 </Box>
