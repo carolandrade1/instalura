@@ -12,13 +12,21 @@ export async function getServerSideProps(ctx) {
   if (hasActiveSession) {
     const session = await auth.getSession();
     const profilePage = await userService.getProfilePage(ctx);
+
+    const urlAPIGithub = `https://api.github.com/users/${session.username}`;
+    const response = await fetch(urlAPIGithub);
+    const infoGithub = await response.json();
+
     return {
       props: {
-        user: {
-          ...session,
-          ...profilePage.user,
+        contextValues: {
+          user: {
+            ...session,
+            ...profilePage.user,
+          },
+          posts: profilePage.posts,
+          infoGithub,
         },
-        posts: profilePage.posts,
       },
     };
   }
@@ -31,21 +39,9 @@ export async function getServerSideProps(ctx) {
   };
 }
 
-function FeedPage({ user, posts }) {
-  // NUMEROS SEGUIDORES-SEGUINDO
-  const [infoGithub, setInfoGithub] = React.useState([]);
-
-  React.useEffect(() => {
-    const githubAPI = `https://api.github.com/users/${user.username}`;
-    fetch(githubAPI)
-      .then((resposta) => resposta.json())
-      .then((respostaJson) => setInfoGithub(respostaJson));
-  }, []);
-
+function FeedPage() {
   return (
-    <>
-      <FeedScreen user={user} posts={posts} infoGithub={infoGithub} />
-    </>
+    <FeedScreen />
   );
 }
 
@@ -53,6 +49,9 @@ export default websiteUserPageHOC(FeedPage, {
   pageWrapperProps: {
     seoProps: {
       headTitle: 'Feed',
+    },
+    pageBoxProps: {
+      backgroundColor: '#F2F2F2',
     },
   },
 });

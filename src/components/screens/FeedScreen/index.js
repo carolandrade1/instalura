@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { usePageContext } from '../../wrappers/WebsitePage/context';
 import Text from '../../foundation/Text';
 import Box from '../../foundation/Layout/Box';
 import Container, {
@@ -45,126 +46,126 @@ const friends = [
   },
 ];
 
-export default function ProfileScreen({ user, posts, infoGithub }) {
+export default function ProfileScreen() {
+  const { posts, user, infoGithub } = usePageContext();
+
   return (
     <Container>
-      <div className="subContainer">
-        <PostsContainer>
-          <ul>
-            {posts.map((item) => (
-              <li key={item.id}>
-                <Header>
-                  <div className="info">
-                    <div className="profilePhoto">
-                      <img src={infoGithub.avatar_url} alt={`Imagem de ${infoGithub.login}`} />
-                    </div>
-                    <Text
-                      tag="p"
-                      variant="subTitle"
-                    >
-                      {user.username}
-                    </Text>
+      <PostsContainer>
+        <ul>
+          {posts.map((item) => (
+            <li key={item.id}>
+              <Header>
+                <div className="info">
+                  <div className="profilePhoto">
+                    <img src={infoGithub.avatar_url} alt={`Imagem de ${infoGithub.login}`} />
                   </div>
-                  <div>
-                    <img src="/images/dot.svg" alt="" />
-                  </div>
-                </Header>
-                <PhotoContainer>
-                  <img src={item.photoUrl} alt="" />
-                </PhotoContainer>
-                <ActionContainer>
-                  <div className="icons">
-                    <div className="iconsBox">
-                      <img src="/images/heart.svg" alt="Imagem de um coração" />
-                      <Text tag="p">
-                        0
-                      </Text>
-                    </div>
-                    <div className="iconsBox">
-                      <img src="/images/talk.svg" alt="" />
-                      <Text tag="p" variant="paragraph2">
-                        3
-                      </Text>
-                    </div>
-                    <img src="/images/send.svg" alt="" />
-                  </div>
-                  <img src="/images/save.svg" alt="" />
-                </ActionContainer>
-                <InfoContainer>
-                  <div>
-                    <img src="/images/instrutores.svg" alt="Imagem dos instrutores do Bootcamp" />
-                    <Text tag="p">
-                      Vem novidade por aí!
-                    </Text>
-                  </div>
-                  <Text tag="span" color="tertiary.light">
-                    Mais
+                  <Text
+                    tag="p"
+                    variant="subTitle"
+                  >
+                    {user.username}
                   </Text>
-                </InfoContainer>
-              </li>
-            ))}
-          </ul>
-        </PostsContainer>
-        <ProjetosContainer>
-          <ul>
-            <li key={infoGithub.name}>
+                </div>
+                <div>
+                  <img src="/images/dot.svg" alt="" />
+                </div>
+              </Header>
+              <PhotoContainer>
+                <img src={item.photoUrl} alt="" />
+              </PhotoContainer>
+              <ActionContainer>
+                <div className="icons">
+                  <div className="iconsBox">
+                    <img src="/images/heart.svg" alt="Imagem de um coração" />
+                    <Text tag="p">
+                      0
+                    </Text>
+                  </div>
+                  <div className="iconsBox">
+                    <img src="/images/talk.svg" alt="" />
+                    <Text tag="p" variant="paragraph2">
+                      3
+                    </Text>
+                  </div>
+                  <img src="/images/send.svg" alt="" />
+                </div>
+                <img src="/images/save.svg" alt="" />
+              </ActionContainer>
+              <InfoContainer>
+                <div>
+                  <img src="/images/instrutores.svg" alt="Imagem dos instrutores do Bootcamp" />
+                  <Text tag="p">
+                    Vem novidade por aí!
+                  </Text>
+                </div>
+                <Text tag="span" color="tertiary.light">
+                  Mais
+                </Text>
+              </InfoContainer>
+            </li>
+          ))}
+        </ul>
+      </PostsContainer>
+      <ProjetosContainer>
+        <ul>
+          <li key={infoGithub.name}>
+            <Box
+              display="flex"
+            >
+              <img src={infoGithub.avatar_url} alt="" />
+              <Box
+                display="flex"
+                flexDirection="column"
+                padding="10px 16px"
+              >
+                <Text tag="p" color="tertiary.main" className="login">
+                  {infoGithub.login}
+                </Text>
+                <Text tag="p" color="tertiary.light">
+                  {infoGithub.name}
+                </Text>
+              </Box>
+            </Box>
+            <a href={infoGithub.html_url} target="_blank" rel="noopener noreferrer">
+              <img src="/images/github.svg" alt="Icone Github" />
+              <Text tag="p">
+                Github
+              </Text>
+            </a>
+          </li>
+          <Text tag="p" color="tertiary.light" className="title">
+            Projetos da galera
+          </Text>
+          {friends.map((item) => (
+            <li key={item.name}>
               <Box
                 display="flex"
               >
-                <img src={infoGithub.avatar_url} alt="" />
+                <img src={item.avatar} alt="" />
                 <Box
                   display="flex"
                   flexDirection="column"
                   padding="10px 16px"
                 >
                   <Text tag="p" color="tertiary.main" className="login">
-                    {infoGithub.login}
+                    {item.login}
                   </Text>
                   <Text tag="p" color="tertiary.light">
-                    {infoGithub.name}
+                    {item.name}
                   </Text>
                 </Box>
               </Box>
-              <a href={infoGithub.html_url} target="_blank" rel="noopener noreferrer">
+              <a href={item.url} target="_blank" rel="noopener noreferrer">
                 <img src="/images/github.svg" alt="Icone Github" />
                 <Text tag="p">
                   Github
                 </Text>
               </a>
             </li>
-            <Text tag="p" color="tertiary.light" className="title">
-              Projetos da galera
-            </Text>
-            {friends.map((item) => (
-              <li key={item.name}>
-                <Box
-                  display="flex"
-                >
-                  <img src={item.avatar} alt="" />
-                  <Box
-                    display="flex"
-                    flexDirection="column"
-                    padding="10px 16px"
-                  >
-                    <Text tag="p" color="tertiary.main" className="login">
-                      {item.login}
-                    </Text>
-                    <Text tag="p" color="tertiary.light">
-                      {item.name}
-                    </Text>
-                  </Box>
-                </Box>
-                <a href={item.url} target="_blank" rel="noopener noreferrer">
-                  <img src="/images/github.svg" alt="Icone Github" />
-                  <Text tag="p">
-                    Github
-                  </Text>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </ProjetosContainer>
-      </div>
+          ))}
+        </ul>
+      </ProjetosContainer>
     </Container>
   );
 }
