@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ContainerHeader, {
@@ -6,7 +7,7 @@ import ContainerHeader, {
 import Logo from '../../../theme/Logo';
 import Button from '../Button';
 
-export default function MenuUser({ onPostClick }) {
+export default function MenuUser({ onPostClick, contextValues }) {
   return (
     <ContainerHeader>
       <Header>
@@ -47,7 +48,7 @@ export default function MenuUser({ onPostClick }) {
             </div>
             <div>
               <Button href="/app/profile">
-                <img src="https://github.com/carolandrade1.png" alt="Foto perfil" />
+                <img src={contextValues.infoGithub.avatar} alt="Foto perfil" />
               </Button>
             </div>
           </Navbar>
