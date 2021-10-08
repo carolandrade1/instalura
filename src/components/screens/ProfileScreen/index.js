@@ -8,10 +8,11 @@ import InfoContainer, {
 
 export default function ProfileScreen() {
   const { posts, infoGithub } = usePageContext();
+  const qntPosts = posts.length;
 
   const Info = [
     {
-      number: '',
+      number: `${qntPosts}`,
       title: 'Publicaçoes',
     },
     {
@@ -28,7 +29,7 @@ export default function ProfileScreen() {
     <Container>
       <InfoContainer>
         <ImageContainer>
-          <img src={infoGithub.avatar_url} alt="" />
+          <img src={infoGithub.avatar} alt="Imagem do perfil" />
         </ImageContainer>
         <ListContainer>
           {Info.map((item) => (
@@ -70,7 +71,7 @@ export default function ProfileScreen() {
       <FotosContainer>
         <ul>
           {posts.map((item) => (
-            <li key={item.id}>
+            <li key={item.createdAt}>
               <img src={item.photoUrl} alt={item.description} />
             </li>
           ))}

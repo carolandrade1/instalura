@@ -12,10 +12,7 @@ export async function getServerSideProps(ctx) {
   if (hasActiveSession) {
     const session = await auth.getSession();
     const profilePage = await userService.getProfilePage(ctx);
-
-    const urlAPIGithub = `https://api.github.com/users/${session.username}`;
-    const response = await fetch(urlAPIGithub);
-    const infoGithub = await response.json();
+    const infoGithub = await userService.getGithubInfo(session.username);
 
     return {
       props: {

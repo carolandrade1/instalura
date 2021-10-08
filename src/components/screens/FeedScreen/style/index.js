@@ -229,7 +229,7 @@ export const ProjetosContainer = styled.section`
   ${breakpointsMedia({
     md: css`
       display: initial;
-      width: 400px;
+      width: 450px;
       margin-top: 24px;
       padding: 0 10px;
     `,
@@ -241,9 +241,14 @@ export const ProjetosContainer = styled.section`
     padding-bottom: 18px; 
   }
 
-  img{
+  .userAvatar {
     width: 64px;
     height: 64px;
+  }
+
+  img{
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
   }
 
@@ -269,7 +274,6 @@ export const ProjetosContainer = styled.section`
   }
 
   .title {
-    font-size: 18px;
     padding: 25px 0 18px 0;
   }
 `;
