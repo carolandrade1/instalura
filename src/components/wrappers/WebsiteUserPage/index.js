@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import MenuUser from '../../commons/MenuUser';
 import Modal from '../../commons/Modal';
 import Box from '../../foundation/Layout/Box';
-import FormCadastro from '../../patterns/FormCadastro';
 import SEO from '../../commons/SEO';
 import { WebsitePageContextProvider } from '../WebsitePage/context';
+import FormPost from '../../patterns/FormPost';
 
 export { WebsitePageContextProvider } from '../WebsitePage/context';
 
@@ -45,7 +45,7 @@ export default function WebsiteUserPageWrapper({
           }}
         >
           {(propsDoModal) => (
-            <FormCadastro propsDoModal={propsDoModal} />
+            <FormPost propsDoModal={propsDoModal} onClose={() => setModalState(false)} />
           )}
         </Modal>
         {menuProps.display && (
