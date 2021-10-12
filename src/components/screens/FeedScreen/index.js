@@ -15,6 +15,12 @@ const friends = [
     url: 'https://github.com/mayrazan',
   },
   {
+    name: 'Eduardo Tioma',
+    avatar: 'https://avatars.githubusercontent.com/u/32800546?v=4',
+    login: 'edukure',
+    url: 'https://github.com/edukure',
+  },
+  {
     name: 'Ana Paula Dezuo',
     avatar: 'https://avatars.githubusercontent.com/u/43011663?v=4',
     login: 'anadezuo',
@@ -25,12 +31,6 @@ const friends = [
     avatar: 'https://avatars.githubusercontent.com/u/81654505?v=4',
     login: 'SchultzGabriel',
     url: 'https://github.com/SchultzGabriel',
-  },
-  {
-    name: 'Eduardo Tioma',
-    avatar: 'https://avatars.githubusercontent.com/u/32800546?v=4',
-    login: 'edukure',
-    url: 'https://github.com/edukure',
   },
   {
     name: 'Danilo Yorinori',
@@ -53,7 +53,7 @@ export default function ProfileScreen() {
     <Container>
       <PostsContainer>
         <ul>
-          {posts.map((item) => (
+          {posts.reverse().map((item) => (
             <li key={item.id}>
               <Header>
                 <div className="info">

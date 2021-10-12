@@ -70,7 +70,7 @@ export default function ProfileScreen() {
       </InfoContainer>
       <FotosContainer>
         <ul>
-          {posts.map((item) => (
+          {posts.reverse().map((item) => (
             <li key={item.createdAt}>
               <img src={item.photoUrl} alt={item.description} />
             </li>
