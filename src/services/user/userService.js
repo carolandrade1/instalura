@@ -4,7 +4,7 @@ import { HttpClient } from '../../infra/http/HttpClient';
 import { authService } from '../auth/authService';
 
 const BASE_URL = isStagingEnv
-  ? 'https://instalura-api-git-master.omariosouto.vercel.app'
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
   : 'https://instalura-api.omariosouto.vercel.app';
 
 export const userService = {
@@ -46,5 +46,25 @@ export const userService = {
       };
     }
     return infoGithub.message;
+  },
+  async sendPost(data) {
+    const url = `${BASE_URL}/api/posts`;
+    try {
+      const token = await authService().getToken();
+      const response = await HttpClient(url, {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        body: data,
+      });
+
+      if (response.data) {
+        return response.data;
+      }
+      return undefined;
+    } catch (err) {
+      return undefined;
+    }
   },
 };

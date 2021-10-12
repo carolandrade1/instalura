@@ -87,7 +87,11 @@ const Col = styled.div`
   ${propToStyle('justifyContent')}
   ${propToStyle('flexDirection')}
   ${propToStyle('paddingRight')}
+  ${propToStyle('maxHeight')}
+  ${propToStyle('maxWidth')}
   ${propToStyle('order')}
+  ${propToStyle('height')}
+  ${propToStyle('width')}
 `;
 
 const Container = styled.div`
@@ -116,6 +120,10 @@ const Container = styled.div`
     ${propToStyle('display')}
     ${propToStyle('flex')}
     ${propToStyle('alignItems')}
+    ${propToStyle('maxHeight')}
+    ${propToStyle('maxWidth')}
+    ${propToStyle('height')}
+    ${propToStyle('width')}
 `;
 
 const Row = styled.div`
@@ -132,6 +140,10 @@ const Row = styled.div`
     ${propToStyle('marginBottom')}
     ${propToStyle('display')}
     ${propToStyle('alignItems')}
+    ${propToStyle('maxHeight')}
+    ${propToStyle('height')}
+    ${propToStyle('width')}
+    ${propToStyle('maxWidth')}
 `;
 
 Col.defaultProps = {

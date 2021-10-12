@@ -15,6 +15,7 @@ const Box = styled.div`
   ${propToStyle('boxShadow')}
   ${propToStyle('padding')}
   ${propToStyle('width')}
+  ${propToStyle('height')}
   ${propToStyle('listStyle')}
   ${propToStyle('margin')}
   ${propToStyle('marginLeft')}
@@ -22,6 +23,8 @@ const Box = styled.div`
   ${propToStyle('marginBottom')}
   ${propToStyle('marginRight')}
   ${propToStyle('alignItems')}
+  ${propToStyle('placeItems')}
+  ${propToStyle('position')}
   ${({ theme, borderRadiusTheme }) => borderRadiusTheme && `border-radius: ${theme.borderRadius}`};
 `;
 
