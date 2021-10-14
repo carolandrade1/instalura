@@ -123,7 +123,7 @@ function FormContent({ onClose }) {
                 disabled={!url}
                 onClick={handleUrlImage}
               >
-                <ArrowIcon />
+                <ArrowIcon id="arrow" />
               </ButtonStyled>
             </ContainerInputButton>
 

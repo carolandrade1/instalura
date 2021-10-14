@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import FeedScreen from '../../src/components/screens/FeedScreen';
+import FeedScreen from '../../src/components/screens/app/FeedScreen';
 import websiteUserPageHOC from '../../src/components/wrappers/WebsiteUserPage/hoc';
 import { authService } from '../../src/services/auth/authService';
 import { userService } from '../../src/services/user/userService';
