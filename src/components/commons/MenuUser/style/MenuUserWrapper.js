@@ -4,6 +4,7 @@ import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 const ContainerHeader = styled.header`
   display: block;
   position: fixed;
+  z-index: 2;
   width: 100%;
   height: 48px; 
   padding-top: 10px;
