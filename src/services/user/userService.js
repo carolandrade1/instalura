@@ -67,4 +67,24 @@ export const userService = {
       return undefined;
     }
   },
+  async setLike(id) {
+    const url = `${BASE_URL}/api/posts/${id}/like`;
+    try {
+      const token = await authService().getToken();
+      const response = await HttpClient(url, {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+        body: {},
+      });
+
+      if (response.data) {
+        return response.data;
+      }
+      return undefined;
+    } catch (err) {
+      return undefined;
+    }
+  },
 };

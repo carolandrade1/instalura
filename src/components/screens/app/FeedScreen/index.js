@@ -49,7 +49,6 @@ const friends = [
 
 export default function ProfileScreen() {
   const { posts, user, infoGithub } = usePageContext();
-  // const reversePosts = posts.reverse();
 
   return (
     <Container>
@@ -75,12 +74,17 @@ export default function ProfileScreen() {
               </Header>
               <PhotoContainer>
                 <img src={item.photoUrl} alt="" loading="lazy" />
-                {/* <LikeButton className="heartbutton" height="1300px" width="1300px" display="none" /> */}
               </PhotoContainer>
               <ActionContainer>
                 <div className="icons">
                   <div className="iconsBox">
-                    <LikeButton className="heartbutton" height="270px" width="270px" display="initial" />
+                    <LikeButton
+                      item={item}
+                      className="heartbutton"
+                      height="270px"
+                      width="270px"
+                      display="initial"
+                    />
                   </div>
                   <div className="iconsBox">
                     <img src="/images/talk.svg" alt="" />

@@ -1,8 +1,12 @@
+/* eslint-disable max-len */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
 import Lottie from 'react-lottie';
 import animationData from './animation.json';
+import { userService } from '../../../services/user/userService';
+import { usePageContext } from '../../wrappers/WebsitePage/context';
 
 const ButtonWrapper = styled.button`
   display: flex;
@@ -24,11 +28,11 @@ const ButtonWrapper = styled.button`
 `;
 
 function LikeButton({
-  height, width, display,
+  height, width, display, item,
 }) {
-  const [isLiked, setLikeState] = React.useState(false);
+  // Animaçao
   const [animationState, setAnimationState] = React.useState({
-    isStopped: true, isPaused: false, direction: -1,
+    isStopped: false, isPaused: false, direction: -1,
   });
 
   const defaultOptions = {
@@ -38,6 +42,29 @@ function LikeButton({
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
+  };
+
+  // Like
+  const { user } = usePageContext();
+  const [likes, setLikes] = React.useState({});
+  const [totalLikes, setTotalLikes] = React.useState(item.likes.length);
+
+  React.useEffect(() => {
+    const likesPost = item.likes.find((like) => like.user === user.id);
+    setLikes(likesPost);
+    setAnimationState({ ...animationState, direction: likesPost ? 1 : -1 });
+  }, []);
+
+  const handleLike = async (id) => {
+    const postSelected = await item.likes.find((like) => like.user === user.id);
+    const response = await userService.setLike(id);
+    if (!response) {
+      setLikes(!likes);
+      setTotalLikes(totalLikes - 1);
+    } else {
+      setLikes({ ...likes, postSelected });
+      setTotalLikes(totalLikes + 1);
+    }
   };
 
   return (
@@ -51,9 +78,8 @@ function LikeButton({
             direction: animationState.direction === normalAnimation
               ? reverseAnimation
               : normalAnimation,
-            isStopped: false,
           });
-          setLikeState(!isLiked);
+          handleLike(item._id);
         }}
       >
         <div className="animation">
@@ -68,7 +94,7 @@ function LikeButton({
         </div>
       </ButtonWrapper>
       <p style={{ display: `${display}` }}>
-        {isLiked ? 1 : 0}
+        {totalLikes}
       </p>
     </>
   );
