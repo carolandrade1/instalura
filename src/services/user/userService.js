@@ -78,7 +78,6 @@ export const userService = {
         },
         body: {},
       });
-
       if (response.data) {
         return response.data;
       }
