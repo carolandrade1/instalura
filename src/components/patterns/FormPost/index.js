@@ -18,18 +18,9 @@ import {
 import { userService } from '../../../services/user/userService';
 import photoFilter from './style/photoFilter';
 
-const formStates = {
-  DEFAULT: 'DEFAULT',
-  LOADING: 'LOADING',
-  DONE: 'DONE',
-  ERROR: 'ERROR',
-};
-
 function FormContent({ onClose }) {
   const router = useRouter();
-  const [isFormSubmited, setIsFormSubmited] = React.useState(false);
   const [steps, setSteps] = React.useState(1);
-  const [submissionStatus, setSubmissionStatus] = React.useState(formStates.DEFAULT);
   const [url, setUrl] = React.useState('');
   const [post, setPost] = React.useState({
     photoUrl: '',
@@ -56,37 +47,19 @@ function FormContent({ onClose }) {
   };
 
   const handlePost = async () => {
-    setIsFormSubmited(true);
-    setSubmissionStatus(formStates.LOADING);
     await userService
       .sendPost(post)
       .then(() => {
-        setSubmissionStatus(formStates.DONE);
-        router.push('/app/feed');
+        router.push('/app/profile');
         onClose();
       })
       .catch(() => {
-        setSubmissionStatus(formStates.ERROR);
       })
       .finally(() => {
-        setIsFormSubmited(false);
       });
   };
 
   const isValidUrl = URLValidation.test(post.photoUrl);
-
-  // React.useEffect(() => {
-  //   if (!isOpen) {
-  //     setSubmissionStatus(formStates.DEFAULT);
-  //   }
-  //   setSteps(1);
-  //   setUrl('');
-  //   setPost({
-  //     photoUrl: '',
-  //     description: 'Legenda do post',
-  //     filter: 'none',
-  //   });
-  // }, [isOpen]);
 
   return (
     <>
@@ -174,37 +147,6 @@ function FormContent({ onClose }) {
         >
           {steps === 1 ? 'Avançar' : 'Postar'}
         </Button>
-
-        {/* {isFormSubmited && submissionStatus === formStates.LOADING && (
-          <img
-            src="/images/loading.gif"
-            alt="Tudo certo!"
-            width="20px"
-            height="20px"
-          />
-        )} */}
-
-        {isFormSubmited && submissionStatus === formStates.DONE && (
-          <Box display="flex" justifyContent="center">
-            <img
-              src="/images/success.gif"
-              alt="Tudo certo!"
-              width="100px"
-              height="100px"
-            />
-          </Box>
-        )}
-
-        {isFormSubmited && submissionStatus === formStates.ERROR && (
-          <Box display="flex" justifyContent="center">
-            <img
-              src="/images/erro.gif"
-              alt="Ixi, alguma coisa deu errado!"
-              width="100px"
-              height="100px"
-            />
-          </Box>
-        )}
       </FormContainer>
     </>
   );
