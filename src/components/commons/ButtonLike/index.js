@@ -2,11 +2,9 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import styled from 'styled-components';
 import Lottie from 'react-lottie';
+import styled from 'styled-components';
 import animationData from './animation.json';
-import { userService } from '../../../services/user/userService';
-import { usePageContext } from '../../wrappers/WebsitePage/context';
 
 const ButtonWrapper = styled.button`
   display: flex;
@@ -28,7 +26,7 @@ const ButtonWrapper = styled.button`
 `;
 
 function LikeButton({
-  height, width, display, item,
+  height, width, display, totalLikes, userLiked, handleLike,
 }) {
   // Animaçao
   const [animationState, setAnimationState] = React.useState({
@@ -44,33 +42,15 @@ function LikeButton({
     },
   };
 
-  // Like
-  const { user } = usePageContext();
-  const [likes, setLikes] = React.useState({});
-  const [totalLikes, setTotalLikes] = React.useState(item.likes.length);
-
   React.useEffect(() => {
-    const likesPost = item.likes.find((like) => like.user === user.id);
-    setLikes(likesPost);
-    setAnimationState({ ...animationState, direction: likesPost ? 1 : -1 });
-  }, []);
-
-  const handleLike = async (id) => {
-    const postSelected = await item.likes.find((like) => like.user === user.id);
-    const response = await userService.setLike(id);
-    if (!response) {
-      setLikes(!likes);
-      setTotalLikes(totalLikes - 1);
-    } else {
-      setLikes({ ...likes, postSelected });
-      setTotalLikes(totalLikes + 1);
-    }
-  };
+    setAnimationState({ ...animationState, direction: userLiked ? 1 : -1 });
+  }, [userLiked]);
 
   return (
     <>
       <ButtonWrapper
         onClick={() => {
+          handleLike();
           const reverseAnimation = -1;
           const normalAnimation = 1;
           setAnimationState({
@@ -79,7 +59,6 @@ function LikeButton({
               ? reverseAnimation
               : normalAnimation,
           });
-          handleLike(item._id);
         }}
       >
         <div className="animation">
