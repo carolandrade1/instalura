@@ -4,9 +4,9 @@ import { usePageContext } from '../../../wrappers/WebsitePage/context';
 import Text from '../../../foundation/Text';
 import Box from '../../../foundation/Layout/Box';
 import Container, {
-  ActionContainer, Header, InfoContainer, PhotoContainer, PostsContainer, ProjetosContainer,
+  PostsContainer, ProjetosContainer,
 } from './style';
-import LikeButton from '../../../commons/ButtonLike';
+import Post from './post';
 
 const friends = [
   {
@@ -48,66 +48,15 @@ const friends = [
 ];
 
 export default function ProfileScreen() {
-  const { posts, user, infoGithub } = usePageContext();
+  const { posts, infoGithub } = usePageContext();
 
   return (
     <Container>
       <PostsContainer>
         <ul>
           {posts.map((item) => (
-            <li key={item.id}>
-              <Header>
-                <div className="info">
-                  <div className="profilePhoto">
-                    <img src={`https://github.com/${infoGithub.username}.png`} alt="Imagem do perfil" />
-                  </div>
-                  <Text
-                    tag="p"
-                    variant="subTitle"
-                  >
-                    {user.username}
-                  </Text>
-                </div>
-                <div>
-                  <img src="/images/dot.svg" alt="" />
-                </div>
-              </Header>
-              <PhotoContainer>
-                <img src={item.photoUrl} alt="" loading="lazy" />
-              </PhotoContainer>
-              <ActionContainer>
-                <div className="icons">
-                  <div className="iconsBox">
-                    <LikeButton
-                      item={item}
-                      className="heartbutton"
-                      height="270px"
-                      width="270px"
-                      display="initial"
-                    />
-                  </div>
-                  <div className="iconsBox">
-                    <img src="/images/talk.svg" alt="" />
-                    <Text tag="p" variant="paragraph2">
-                      3
-                    </Text>
-                  </div>
-                  <img src="/images/send.svg" alt="" />
-                </div>
-                <img src="/images/save.svg" alt="" />
-              </ActionContainer>
-              <InfoContainer>
-                <div>
-                  <img src="/images/instrutores.svg" alt="Imagem dos instrutores do Bootcamp" />
-                  <Text tag="p">
-                    Vem novidade por aí!
-                  </Text>
-                </div>
-                <Text tag="span" color="tertiary.light">
-                  Mais
-                </Text>
-              </InfoContainer>
-            </li>
+            // eslint-disable-next-line no-underscore-dangle
+            <Post key={item._id} item={item} />
           ))}
         </ul>
       </PostsContainer>
