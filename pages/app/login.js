@@ -49,6 +49,7 @@ function LoginScreen() {
             tag="p"
             color="tertiary.light"
             textAlign="center"
+            marginTop="32px"
           >
             {'Não tem uma conta? '}
             <Link

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
+import breakpointsMedia from '../../../../../theme/utils/breakpointsMedia';
 
 const Container = styled.section`
   display: flex;
@@ -103,6 +103,7 @@ export const Header = styled.header`
 `;
 
 export const PhotoContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 320px;
 
@@ -115,6 +116,20 @@ export const PhotoContainer = styled.div`
   img {
     width: 100%;
     height: 100%;
+  }
+
+  button {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    
+    &:hover {
+      opacity: 1;
+    }
   }
 `;
 

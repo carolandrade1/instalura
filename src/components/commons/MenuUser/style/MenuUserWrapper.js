@@ -4,6 +4,7 @@ import breakpointsMedia from '../../../../theme/utils/breakpointsMedia';
 const ContainerHeader = styled.header`
   display: block;
   position: fixed;
+  z-index: 2;
   width: 100%;
   height: 48px; 
   padding-top: 10px;
@@ -107,7 +108,7 @@ export const InputContainer = styled.div`
     }
 `;
 
-export const Navbar = styled.nav`
+export const Navbar = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,7 +120,7 @@ export const Navbar = styled.nav`
     `,
   })}
 
-  button, a, div {
+  button, a, li {
     width: 24px;
     height: 24px;
     padding: 0;
@@ -207,7 +208,7 @@ export const Navbar = styled.nav`
   })}
   }
 
-  div:nth-child(1n) {
+  li:nth-child(1n) {
     order: 3;
 
     ${breakpointsMedia({
@@ -216,23 +217,55 @@ export const Navbar = styled.nav`
     `,
   })}
   }
-  div:nth-child(2n) {
+  li:nth-child(2n) {
     order: 2;
   }
-  div:nth-child(3n) {
+  li:nth-child(3n) {
     order: 1;
   }
-  div:nth-child(4n) {
+  li:nth-child(4n) {
     order: 4;
   }
-  div:nth-child(5n) {
+  li:nth-child(5n) {
     order: 5;
     border-radius: 50%;
+    position: relative;
 
     img {
       border-radius: 50%;
     }
+
+    &:hover .logoutContainer {
+      display: initial;
+      position: absolute;
+      top: -70%;
+      right: 15%;
+      transform: translate(15%, -70%);
+
+      ${breakpointsMedia({
+    md: css`
+      top: 50%;
+      transform: translateY(50%);
+    `,
+  })}
+    }
   }
+
+  .logoutContainer {
+    display: none;
+    background-color: #D3D3D3;
+    padding: 5px 8px;
+    text-align: left;
+    border-radius: 5px;
+
+    .logout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 85px;
+    }
+  }
+
 `;
 
 export default ContainerHeader;

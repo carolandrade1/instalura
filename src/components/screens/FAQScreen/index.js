@@ -14,8 +14,8 @@ export default function FAQScreen() {
     >
       <Grid.Container style={{ flex: 1 }}>
         <Grid.Row
-          marginTop={{ xs: '32px', md: '100px' }}
-          marginBottom={{ xs: '32px', md: '100px' }}
+          marginTop={{ xs: '32px', md: '80px' }}
+          marginBottom={{ xs: '32px', md: '60px' }}
           justifyContent="center"
         >
           <Grid.Col

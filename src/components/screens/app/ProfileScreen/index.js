@@ -1,7 +1,8 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import Text from '../../foundation/Text';
-import { usePageContext } from '../../wrappers/WebsitePage/context';
+import Text from '../../../foundation/Text';
+import { usePageContext } from '../../../wrappers/WebsitePage/context';
 import InfoContainer, {
   Container, FotosContainer, ImageContainer, ListContainer, User,
 } from './style';
@@ -33,7 +34,7 @@ export default function ProfileScreen() {
         </ImageContainer>
         <ListContainer>
           {Info.map((item) => (
-            <li key={item.title}>
+            <li key={item.number}>
               <Text
                 tag="span"
                 variant="subTitle"
@@ -71,7 +72,7 @@ export default function ProfileScreen() {
       <FotosContainer>
         <ul>
           {posts.reverse().map((item) => (
-            <li key={item.createdAt}>
+            <li key={item._id}>
               <img src={item.photoUrl} alt={item.description} />
             </li>
           ))}

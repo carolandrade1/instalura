@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { usePageContext } from '../../wrappers/WebsitePage/context';
-import Text from '../../foundation/Text';
-import Box from '../../foundation/Layout/Box';
+import { usePageContext } from '../../../wrappers/WebsitePage/context';
+import Text from '../../../foundation/Text';
+import Box from '../../../foundation/Layout/Box';
 import Container, {
   ActionContainer, Header, InfoContainer, PhotoContainer, PostsContainer, ProjetosContainer,
 } from './style';
+import LikeButton from '../../../commons/ButtonLike';
 
 const friends = [
   {
@@ -53,7 +54,7 @@ export default function ProfileScreen() {
     <Container>
       <PostsContainer>
         <ul>
-          {posts.reverse().map((item) => (
+          {posts.map((item) => (
             <li key={item.id}>
               <Header>
                 <div className="info">
@@ -72,15 +73,18 @@ export default function ProfileScreen() {
                 </div>
               </Header>
               <PhotoContainer>
-                <img src={item.photoUrl} alt="" />
+                <img src={item.photoUrl} alt="" loading="lazy" />
               </PhotoContainer>
               <ActionContainer>
                 <div className="icons">
                   <div className="iconsBox">
-                    <img src="/images/heart.svg" alt="Imagem de um coração" />
-                    <Text tag="p">
-                      0
-                    </Text>
+                    <LikeButton
+                      item={item}
+                      className="heartbutton"
+                      height="270px"
+                      width="270px"
+                      display="initial"
+                    />
                   </div>
                   <div className="iconsBox">
                     <img src="/images/talk.svg" alt="" />

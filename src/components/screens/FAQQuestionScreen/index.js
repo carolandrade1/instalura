@@ -80,7 +80,8 @@ export default function FAQQuestionScreen() {
               as="p"
               variant="paragraph1"
               color="tertiary.light"
-                          // eslint-disable-next-line react/no-danger
+              marginTop="30px"
+              // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{ __html: question.description }}
             />
           </Grid.Col>
