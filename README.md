@@ -7,10 +7,10 @@
  <a href="#-Imagens-links">Imagens/Links</a> •
  <a href="#-Linguagens-e-tecnologias-utilizadas">Linguagens e tecnologias utilizadas</a> • 
  <a href="#-funcionalidades">Funcionalidades</a> •
- <a href="#-instalaçao">Instalação</a> •
+ <a href="#-Instalação">Instalação</a> •
  <a href="#-ci-cd">CI/CD</a> • 
  <a href="#-testes">Testes</a> • 
- <a href="#-modulos">Módulos</a> • 
+ <a href="#-Módulos">Módulos</a> • 
  <a href="#-Instrutores-do-Bootcamp-Alura">Instrutores do Bootcamp Alura</a> • 
 </p>
 <br>
@@ -46,23 +46,23 @@ O projeto é uma versão do Instagram, criado com React, Next/js e styled-compon
 
 ## 🧠 Funcionalidades
 
-    - Na página inicial é possivel realizar o cadastro de um novo usuário. Você precisa preencher o formulário com:
-        Nome:
-        Login:
-    Caso queira que seus dados do Github preencham seu perfil no Instalura, só colocar seu login do Github no login do form. Um gif será visualizado demonstrando o sucesso/erro do cadastro.
+- Na página inicial é possivel realizar o cadastro de um novo usuário. Você precisa preencher o formulário com:
+    Nome:
+    Login:
+Caso queira que seus dados do Github preencham seu perfil no Instalura, só colocar seu login do Github no login do form. Um gif será visualizado demonstrando o sucesso/erro do cadastro.
 
-    - Na página de login, voce precisará passar as seguintes informaçoes:
-        Login:
-        Senha: senhasegura
-    A senha sempre será a mesma, independente do usuário.
+- Na página de login, voce precisará passar as seguintes informaçoes:
+    Login:
+    Senha: senhasegura
+A senha sempre será a mesma, independente do usuário.
 
-    - Na página de profile, caso tenha usado usado o login do Github, será possivel ver sua foto, número de seguidores/seguindo e a quantidade de posts que você realizou. Caso tenha entrado com um login único, será possivel ver uma foto padrão.
+- Na página de profile, caso tenha usado usado o login do Github, será possivel ver sua foto, número de seguidores/seguindo e a quantidade de posts que você realizou. Caso tenha entrado com um login único, será possivel ver uma foto padrão.
 
-    - No menu do usuário, é possivel adicionar um post clicando no botão +. Então o modal é aberto e você poderá colocar a URL de uma imagem. Após seguir para o próximo passo é possivel escolher um dos filtros, para entao realizar a postagem, que poderá ser visualizada, tanto no perfil quanto no feed.
+- No menu do usuário, é possivel adicionar um post clicando no botão +. Então o modal é aberto e você poderá colocar a URL de uma imagem. Após seguir para o próximo passo é possivel escolher um dos filtros, para entao realizar a postagem, que poderá ser visualizada, tanto no perfil quanto no feed.
 
-    - Na página no feed, é possivel visualizar todos os seus posts e dar like naqueles que mais gostou.
+- Na página no feed, é possivel visualizar todos os seus posts e dar like naqueles que mais gostou.
 
-    * Nos projetos da galera, localizados na página no feed, decidi colocar as pessoas que mais me ajudaram a construir esse projeto, além da equipe da Alura.
+* Nos projetos da galera, localizados na página no feed, decidi colocar as pessoas que mais me ajudaram a construir esse projeto, além da equipe da Alura.
 
 ---
 
