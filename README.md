@@ -107,6 +107,19 @@ Conjunto de processos com os quais se pretende validar um sistema ou aplicação
 
 - [Testing playground](https://testing-playground.com/)
 
+- [Cypress](https://www.cypress.io/)
+
+Para rodar os testes:
+
+    - Rodar testes unitários
+    $ yarn test
+
+    - Rodar testes Cypress
+    $ yarn test:integration:build
+
+    - Caso queira visualizar os testes do Cypress com o app
+    $ yarn test:integration:open
+
 ---
 
 ## 📦 Módulos
