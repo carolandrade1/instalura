@@ -11,7 +11,6 @@ import {
 
 export default function Post({ item }) {
   const { user, infoGithub } = usePageContext();
-
   const hasUserLiked = (postLikes) => postLikes.some((like) => like.user === user.id);
 
   // Like
@@ -56,8 +55,8 @@ export default function Post({ item }) {
           totalLikes={totalLikes}
           userLiked={userLiked}
           className="heartbutton"
-          height="800px"
-          width="600px"
+          height="600px"
+          width="370px"
           display="none"
         />
       </PhotoContainer>
