@@ -56,8 +56,8 @@ export default function Post({ item }) {
           totalLikes={totalLikes}
           userLiked={userLiked}
           className="heartbutton"
-          height="800px"
-          width="600px"
+          height="600px"
+          width="375px"
           display="none"
         />
       </PhotoContainer>
