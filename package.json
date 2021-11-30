@@ -37,7 +37,7 @@
     "react-lottie": "^1.2.3",
     "styled-components": "^5.3.1",
     "styled-normalize": "^8.0.7",
-    "yup": "^0.32.9"
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.7.1",
