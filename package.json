@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@commitlint/cli": "^13.2.0",
-    "@commitlint/config-conventional": "^13.2.0",
+    "@commitlint/config-conventional": "^17.0.3",
     "@types/jest": "^27.0.2",
     "framer-motion": "^4.1.17",
     "graphql": "^15.6.0",
